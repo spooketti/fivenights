@@ -76,6 +76,12 @@ const playTransition = async() =>
 
             
         break;
+        case "FOURA":
+            flipAnimation.src = `assets/camera/CAM_FOURA-F${freddyProgress==4}Cfalse.webp`
+        break;
+        case "FOURB":
+            flipAnimation.src = `assets/camera/CAM_FOURB-F${freddyProgress==5}Cfalse.webp`
+        break;
         default:
             flipAnimation.src = `assets/camera/CAM_${currentCamera}.webp`
 

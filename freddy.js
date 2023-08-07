@@ -4,6 +4,7 @@ let freddyProgress = 0;
 let laugh0 = new Audio("assets/sounds/laugh.wav")
 let laugh1 = new Audio("assets/sounds/laugh1.wav")
 let laugh2 = new Audio("assets/sounds/laugh2.wav")
+let poweroutmusic = new Audio("assets/sounds/poweroutmusic.ogg")
 let laugh = [laugh0,laugh1,laugh2]
 /*
 let runningSound = new Audio("assets/sounds/Run.ogg")
@@ -13,7 +14,6 @@ let bangArray = [shortBang,longBang,3000,7000]
 */
 function freddyMovement()
 {
-    console.log("f")
 let chance = Math.floor(Math.random() * 20)
 if(freddyAI<chance)
 {
@@ -21,9 +21,22 @@ if(freddyAI<chance)
 }
 switch(freddyProgress)
 {
+    
+    case 2:
+        poweroutmusic.currentTime = 0
+        poweroutmusic.play()
+        poweroutmusic.loop = true
+        freddyProgress++
+        laugh[laugh[Math.floor(Math.random() * laugh.length)].play()]
+    break;
     case 5: //corner
     if(cameraOpen==false)
     {
+        if(rightDoorClosed&&currentCamera!="FOURB")
+        {
+            freddyProgress=4;
+            laugh[Math.floor(Math.random() * laugh.length)].play()
+        }
         return;
     }
         if(currentCamera != "FOURB")
@@ -31,9 +44,13 @@ switch(freddyProgress)
             if(rightDoorClosed)
             {
                 freddyProgress=4;
+                laugh[Math.floor(Math.random() * laugh.length)].play()
+                return;
             }
                 freddyProgress=6
                 laugh[Math.floor(Math.random() * laugh.length)].play()
+                
+                
             //laugh
         }
     break;
@@ -41,10 +58,14 @@ switch(freddyProgress)
         alert("sucker")
     break;
     default:
+        poweroutmusic.pause()
         if(cameraOpen == false)
         {
             freddyProgress++
-            laugh[Math.floor(Math.random() * laugh.length)].play()
+            let laughChoice = Math.floor(Math.random() * laugh.length)
+            laugh[laughChoice].pause()
+            laugh[laughChoice].currentTime = 0
+            laugh[laughChoice].play()
         }
     break;
 }
