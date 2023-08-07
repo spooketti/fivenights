@@ -1,0 +1,8 @@
+camera panning (consider making this manually pannable)
+add sounds (consider modding options)
+make settings panel
+possible settings:
+[freddy subtitles(it's documented when he laughs)]
+add changable cameras
+add power drain and usage
+get a life

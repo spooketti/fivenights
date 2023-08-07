@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>feddy fasber..</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="office">
+      <img src="assets/door_panel/lDoorfalselLightfalse.webp" id="leftDoorPanel">
+      <button id="rightDoorButton" class="doorButton" onclick="rightDoor()"></button>
+      <button id="rightLightButton" class="doorButton" onclick="rightLight()"></button>
+      <button id="leftDoorButton" class="doorButton" onclick="leftDoor()"></button>
+      <button id="leftLightButton" class="doorButton" onclick="leftLight()"></button>
+      <img src="assets/lDoorfalse.gif" id="leftDoor">
+      <img src="assets/rDoorfalse.gif" id="rightDoor">
+      <img src="assets/fan.gif" id="fan">
+      <img src="assets/door_panel/rDoorfalserLightfalse.webp" id="rightDoorPanel">
+    </div>
+    <div id="fastLeft" class="officeMover" onmouseenter="clearInterval(moveInterval);logId(this.id)" onmouseleave="clearInterval(moveInterval)">
+
+    </div>
+    <!--
+    <div id="slowLeft" class="officeMover" onmouseenter="logId(this.id)" onmouseleave="clearInterval(moveInterval)">
+      
+    </div>
+    <div id="slowRight" class="officeMover" onmouseenter="logId(this.id)" onmouseleave="clearInterval(moveInterval)">
+
+    </div>
+  -->
+    <div id="fastRight" class="officeMover" onmouseenter="clearInterval(moveInterval);logId(this.id)" onmouseleave="clearInterval(moveInterval)">
+
+    </div>
+
+    <div id="powerUI">
+      Power left:100%
+    </div>
+
+    <div id="clockUI">
+      12 AM
+    </div>
+
+    <div id="cameraToggler" onmouseenter="activationAnimation()">
+
+    </div>
+
+    <div id="cameras">
+      <img src="" id="laptopGif">
+    </div>
+
+    <img id="staticGif" src="assets/static.gif">
+
+    <img id="CamMap" src="assets/Cam_Map.webp">
+
+    <div id="cameraButtons" style="display: none;">
+      <button class="cameraButton" id="ONEA"></button>
+      <button class="cameraButton" id="ONEB"></button>
+
+    <button class="cameraButton" id="ONEC" style="
+    left: 70.4%;
+    top: 64.5%;
+"></button><button class="cameraButton" id="FIVE" style="
+    left: 65%;
+    top: 57.2%;
+"></button><button class="cameraButton" id="SEVEN" style="
+    left: 90.3%;
+    top: 57.3%;
+"></button><button class="cameraButton" id="SIX" style="
+    left: 89.6%;
+    top: 76.5%;
+"></button><button class="cameraButton" id="FOURA" style="
+    left: 82.3%;
+    top: 82%;
+"></button><button class="cameraButton" id="TWOB" style="
+    left: 74.5%;
+    top: 87.5%;
+"></button><button class="cameraButton" id="TWOA" style="
+    left: 74.5%;
+    top: 81.6%;
+"></button><button class="cameraButton" id="FOURB" style="
+    left: 82.3%;
+    top: 87.5%;
+"></button><button class="cameraButton" id="THREE" style="
+    left: 68%;
+    top: 79%;
+"></button></div>
+
+
+   
+	<script src="power.js"></script>
+  <script src="clock.js"></script>
+  <script src="office.js"></script>
+  <script src="camera.js"></script>
+  <script src="foxy.js"></script>
+  <script src="freddy.js"></script>
+  </body>
+</html>
