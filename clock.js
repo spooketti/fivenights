@@ -7,6 +7,22 @@ function passHour()
 {
 hour+=1
 clockUI.innerText = `${AM[hour]} AM`
+switch(hour)
+{
+    case 2:
+        bonnieAI++
+    break;
+    case 3:
+        bonnieAI++
+        chicaAI++
+        foxyAI++
+    break;
+    case 4:
+        bonnieAI++
+        chicaAI++
+        foxyAI++
+    break;
+}
 }
 
 console.log(AM[hour])

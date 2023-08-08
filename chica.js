@@ -1,5 +1,5 @@
 let chicaInterval = window.setInterval(chicaMovement,4800)
-let chicaAI = 20;
+let chicaAI = 0;
 let chicaProgress = 0;
 let kitchenSound = new Audio("assets/sounds/kitchen.wav")
 /*

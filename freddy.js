@@ -1,5 +1,5 @@
 let freddyInterval = window.setInterval(freddyMovement,5000)
-let freddyAI = 20;
+let freddyAI = 0;
 let freddyProgress = 0;
 let laugh0 = new Audio("assets/sounds/laugh.wav")
 let laugh1 = new Audio("assets/sounds/laugh1.wav")

@@ -1,5 +1,5 @@
 let foxyInterval = window.setInterval(foxyMovement,5000)
-let foxyAI = 20;
+let foxyAI = 0;
 let foxyProgress = 0;
 let stunned = false
 let runningSound = new Audio("assets/sounds/Run.ogg")

@@ -202,7 +202,7 @@ html,body
     height:100%;
     top:0;
     left:0;
-    z-index: 3;
+    z-index: 4;
     pointer-events: none;
     opacity: 20%;
     display: none;
@@ -213,7 +213,7 @@ html,body
     position: absolute;
     bottom:5%;
     right:5%;
-    z-index: 4;
+    z-index: 5;
     display: none;
     width:30%;
     height:50%;
@@ -252,4 +252,89 @@ html,body
 @keyframes fadeInFromNone {
     0%,100% { opacity: 0; }
   50% { opacity: 50%; }
+}
+
+.stageA
+{
+    display: block;
+    position: absolute;
+    
+}
+
+#stageDiv
+{
+    position: absolute;
+    display: none;
+    z-index: 3;
+}
+
+#mainMenu
+{
+    position: absolute;
+    height:100%;
+    width:100%;
+    background-size: cover;
+    top:0;
+    left:0;
+    background-image: url("assets/mainMenu.gif");
+    z-index: 5;
+    background-repeat: no-repeat;
+    
+}
+
+#mainMenu h1
+{
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    position: absolute;
+    top:10%;
+    left:10%;
+}
+
+#newg
+{
+    color: white;
+    background-color:transparent;
+    border: none;
+    font-size: large;
+    font-family: 'Press Start 2P', cursive;
+    position: absolute;
+    top:50%;
+    left:10%;
+}
+
+#nightname
+{
+    color: white;
+    background-color:transparent;
+    font-size: smaller;
+    font-family: 'Press Start 2P', cursive;
+    position: absolute;
+    top:62%;
+    left:11%;
+}
+
+#cong
+{
+    color: white;
+    background-color:transparent;
+    border: none;
+    font-size: large;
+    font-family: 'Press Start 2P', cursive;
+    position: absolute;
+    top:60%;
+    left:10%; 
+}
+#menuStatic
+{
+position: absolute;
+height:100%;
+width: 100%;
+top:0;
+left:0;
+background-image: url("assets/static.gif");
+background-size:cover;
+z-index: 11;
+opacity: 20%;
+pointer-events: none;
 }

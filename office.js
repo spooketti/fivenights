@@ -5,6 +5,7 @@ let currentTransform = -120
 //office.style.transform = "translate(-120px)"
 let doorSound = new Audio("assets/sounds/door.ogg")
 let lightSound = new Audio("assets/sounds/light.ogg")
+let failSound = new Audio("assets/sounds/error.wav")
 let direction
 let moveInterval
 let officeMoverLeft = document.getElementById("fastLeft")
@@ -13,10 +14,12 @@ let leftDoorPanel = document.getElementById("leftDoorPanel")
 let rightDoorPanel = document.getElementById("rightDoorPanel")
 let leftDoorModel = document.getElementById("leftDoor")
 let rightDoorModel = document.getElementById("rightDoor")
+let windowScare = new Audio("assets/sounds/windowscare.wav")
 let leftDoorClosed = false;
 let rightDoorClosed = false;
 let leftLightOn = false;
 let rightLightOn = false;
+let jammed = false
 clearInterval(moveInterval)
 
 window.onload = function()
@@ -86,26 +89,45 @@ office.style.transform = `translate(${currentTransform}px)`
 
 function rightDoor()
 {
-    if(bonnieProgress==7||chicaProgress==7)
-    {
-        return;
-    }
+    
 rightDoorClosed = !rightDoorClosed
+if((bonnieProgress==7||chicaProgress==7||jammed))
+    {
+        if(!rightDoorClosed == true)
+        {
+            rightDoorModel.src = `assets/rDoorfalse.gif`
+            doorSound.pause()
+    doorSound.currentTime = 0
+    doorSound.play()
+        }
+        rightDoorClosed = false
+        jammed = true
+        failSound.pause()
+        failSound.currentTime = 0
+        failSound.play()
+    }
+    else
+    {
 doorSound.pause()
     doorSound.currentTime = 0
     doorSound.play()
+    rightDoorModel.src = `assets/rDoor${rightDoorClosed.toString()}.gif`
+    }
 rightDoorPanel.src = `assets/door_panel/rDoor${rightDoorClosed.toString()}rLight${rightLightOn}.webp`
-rightDoorModel.src = `assets/rDoor${rightDoorClosed.toString()}.gif`
 }
 
 function leftLight()
 {
-    if(bonnieProgress==7||chicaProgress==7)
-    {
-        return;
-    }
+    
 leftLightOn = !leftLightOn
-
+if(bonnieProgress==7||chicaProgress==7||jammed)
+    {
+        leftLightOn = false
+        jammed = true
+        failSound.pause()
+        failSound.currentTime = 0
+        failSound.play()
+    }
 rightLightOn = false
 rightDoorPanel.src = `assets/door_panel/rDoor${rightDoorClosed.toString()}rLight${rightLightOn}.webp`
 leftDoorPanel.src = `assets/door_panel/lDoor${leftDoorClosed.toString()}lLight${leftLightOn}.webp`
@@ -116,6 +138,12 @@ if(leftLightOn)
     lightSound.pause()
     lightSound.currentTime = 0
     lightSound.play()
+    if(bonnieProgress==6)
+    {
+        windowScare.pause()
+        windowScare.currentTime = 0
+        windowScare.play()
+    }
 }
 }
 
@@ -123,18 +151,34 @@ if(leftLightOn)
 
 function leftDoor()
 {
-    if(bonnieProgress==7||chicaProgress==7)
-    {
-        return;
-    }
+    
     leftDoorClosed = !leftDoorClosed
-    doorSound.pause()
+    if((bonnieProgress==7||chicaProgress==7||jammed))
+    {
+        if(!leftDoorClosed==true)
+        {
+
+                leftDoorClosed.src = `assets/lDoorfalse.gif`
+                doorSound.pause()
     doorSound.currentTime = 0
     doorSound.play()
-    leftDoorPanel.src = `assets/door_panel/lDoor${leftDoorClosed.toString()}lLight${leftLightOn}.webp`
+            
+        }
+        leftDoorClosed = false
+        jammed = true
+        failSound.pause()
+        failSound.currentTime = 0
+        failSound.play()
+    }
+    else
+    {
+        doorSound.pause()
+    doorSound.currentTime = 0
+    doorSound.play()
     leftDoorModel.src = `assets/lDoor${leftDoorClosed.toString()}.gif`
-    console.log(foxyIsAtDoor)
-    console.log(leftDoorClosed)
+    }
+    
+    leftDoorPanel.src = `assets/door_panel/lDoor${leftDoorClosed.toString()}lLight${leftLightOn}.webp`
     if(foxyIsAtDoor==true && leftDoorClosed == false)
     {
         alert("death")
@@ -143,11 +187,16 @@ function leftDoor()
 
 function rightLight()
 {
-    if(bonnieProgress==7||chicaProgress==7)
-    {
-        return;
-    }
+    
 rightLightOn = !rightLightOn
+if(bonnieProgress==7||chicaProgress==7||jammed)
+    {
+        rightLightOn = false
+        jammed = true
+        failSound.pause()
+        failSound.currentTime = 0
+        failSound.play()
+    }
 leftLightOn = false
 leftDoorPanel.src = `assets/door_panel/lDoor${leftDoorClosed.toString()}lLight${leftLightOn}.webp`
 rightDoorPanel.src = `assets/door_panel/rDoor${rightDoorClosed.toString()}rLight${rightLightOn}.webp`
@@ -158,5 +207,11 @@ if(rightLightOn)
     lightSound.pause()
     lightSound.currentTime = 0
     lightSound.play()
+    if(chicaProgress==6)
+    {
+        windowScare.pause()
+        windowScare.currentTime = 0
+        windowScare.play()
+    }
 }
 }
