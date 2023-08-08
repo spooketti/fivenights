@@ -23,7 +23,10 @@ switch(freddyProgress)
 {
     
     case 2:
-        poweroutmusic.currentTime = 0
+        if(cameraOpen==true)
+        {
+            return;
+        }
         poweroutmusic.play()
         poweroutmusic.loop = true
         freddyProgress++
@@ -58,7 +61,11 @@ switch(freddyProgress)
         alert("sucker")
     break;
     default:
-        poweroutmusic.pause()
+        if(freddyProgress!=3)
+        {
+            poweroutmusic.pause()
+        }
+        
         if(cameraOpen == false)
         {
             freddyProgress++

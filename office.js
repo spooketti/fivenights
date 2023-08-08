@@ -86,6 +86,10 @@ office.style.transform = `translate(${currentTransform}px)`
 
 function rightDoor()
 {
+    if(bonnieProgress==7||chicaProgress==7)
+    {
+        return;
+    }
 rightDoorClosed = !rightDoorClosed
 doorSound.pause()
     doorSound.currentTime = 0
@@ -96,12 +100,16 @@ rightDoorModel.src = `assets/rDoor${rightDoorClosed.toString()}.gif`
 
 function leftLight()
 {
+    if(bonnieProgress==7||chicaProgress==7)
+    {
+        return;
+    }
 leftLightOn = !leftLightOn
 
 rightLightOn = false
 rightDoorPanel.src = `assets/door_panel/rDoor${rightDoorClosed.toString()}rLight${rightLightOn}.webp`
 leftDoorPanel.src = `assets/door_panel/lDoor${leftDoorClosed.toString()}lLight${leftLightOn}.webp`
-office.style.backgroundImage = `url("./assets/officelLight${leftLightOn}rLightfalse.webp")`
+office.style.backgroundImage = `url("./assets/officelLight${leftLightOn}rLightfalseB${bonnieProgress==6&&leftLightOn}Cfalse.webp")`
 lightSound.pause()
 if(leftLightOn)
 {
@@ -115,6 +123,10 @@ if(leftLightOn)
 
 function leftDoor()
 {
+    if(bonnieProgress==7||chicaProgress==7)
+    {
+        return;
+    }
     leftDoorClosed = !leftDoorClosed
     doorSound.pause()
     doorSound.currentTime = 0
@@ -131,11 +143,15 @@ function leftDoor()
 
 function rightLight()
 {
+    if(bonnieProgress==7||chicaProgress==7)
+    {
+        return;
+    }
 rightLightOn = !rightLightOn
 leftLightOn = false
 leftDoorPanel.src = `assets/door_panel/lDoor${leftDoorClosed.toString()}lLight${leftLightOn}.webp`
 rightDoorPanel.src = `assets/door_panel/rDoor${rightDoorClosed.toString()}rLight${rightLightOn}.webp`
-office.style.backgroundImage = `url("./assets/officelLightfalserLight${rightLightOn}.webp")`
+office.style.backgroundImage = `url("./assets/officelLightfalserLight${rightLightOn}BfalseC${chicaProgress==6&&rightLightOn}.webp")`
 lightSound.pause()
 if(rightLightOn)
 {

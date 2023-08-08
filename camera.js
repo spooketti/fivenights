@@ -57,6 +57,19 @@ const playTransition = async() =>
         break;
         case "ONEB":
             flipAnimation.src = "assets/camera/CAM_ONEB.webp"
+            if(freddyProgress==1)
+            {
+                flipAnimation.src = "assets/camera/CAM_ONEB-F.webp"
+            }
+            
+        break;
+        case "SEVEN":
+            flipAnimation.src = "assets/camera/CAM_SEVEN.webp"
+            if(freddyProgress==2)   
+            {
+                flipAnimation.src = "assets/camera/CAM_SEVEN-F.webp"
+            }
+
         break;
         case "TWOA":
             if(foxyIsAtDoor)
