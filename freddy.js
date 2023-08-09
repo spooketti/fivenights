@@ -14,11 +14,12 @@ let bangArray = [shortBang,longBang,3000,7000]
 */
 function freddyMovement()
 {
-let chance = Math.floor(Math.random() * 20)
+let chance = Math.floor(Math.random() * 20 + 1)
 if(freddyAI<chance)
 {
     return;
 }
+//console.log(chance)
 switch(freddyProgress)
 {
     

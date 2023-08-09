@@ -82,7 +82,7 @@ const playTransition = async() =>
             flipAnimation.src = `assets/camera/CAM_ONEC-${foxyProgress}.webp`
         break;
         case "ONEB":
-            console.log('jesus')
+       //     console.log('jesus')
             flipAnimation.src = "assets/camera/CAM_ONEB.webp"
             if(bonnieProgress==1)
             {

@@ -6,7 +6,7 @@ let clockUI = document.getElementById("clockUI")
 function passHour()
 {
 hour+=1
-clockUI.innerText = `${AM[hour]} AM`
+clockUI.innerText = `${AM[hour]} AM \nNight ${currentNight}`
 switch(hour)
 {
     case 2:
@@ -22,7 +22,14 @@ switch(hour)
         chicaAI++
         foxyAI++
     break;
+    case 6:
+        if(isGaming)
+        {
+            nightWon()
+        }
+        
+    break;
 }
 }
 
-console.log(AM[hour])
+//console.log(AM[hour])

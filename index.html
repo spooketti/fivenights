@@ -40,6 +40,8 @@
 
     <div id="clockUI">
       12 AM
+      <br>
+      Night 1
     </div>
 
     <div id="cameraToggler" onmouseenter="activationAnimation()">
@@ -96,12 +98,19 @@
 
 <div id="mainMenu">
   <h1>Five<br>Nights<br>At<br>Freddy's</h1>
-  <button id="newg">New Game</button>
-  <button id="cong">Continue</button>
+  <button id="newg" onclick="newGame()">New Game</button>
+  <button id="cong" onclick="alert('cont')">Continue</button>
   <p id="nightname">Night 1</p>
 </div>
 <div id="menuStatic"></div>
-
+<div id="nightIntermission">
+  <h2 id="nightMarker">Night 1</h2>
+  <br>
+  <h2 id="nightTime">12:00 AM</h2>
+</div>
+<div id="SIXAM">
+  
+</div>
    
 	<script src="power.js"></script>
   <script src="clock.js"></script>

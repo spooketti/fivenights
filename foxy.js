@@ -12,12 +12,12 @@ let foxyIsAtDoor = false
 let foxyPowerPenalty = -4
 function foxyMovement()
 {
-let chance = Math.floor(Math.random() * 20)
+let chance = Math.floor(Math.random() * 20 + 1)
 
 if(foxyAI >= chance && cameraOpen == false && stunned == false && foxyProgress != 3)
 {
 foxyProgress++
-console.log("moved")
+//console.log("moved")
 if(foxyProgress==3)
 {
 foxySprint()
@@ -37,7 +37,7 @@ const stunFoxy = async () =>
 
 const foxySprint = async () =>
 {
-    console.log("countdown began")
+   // console.log("countdown began")
     await delay(25000)
     if(!earlyReveal)
     {
@@ -56,7 +56,7 @@ const foxyAttack = async() =>
     isRunning = true
     runningSound.play()
     foxyPowerPenalty+=5
-    console.log(foxyPowerPenalty)
+   // console.log(foxyPowerPenalty)
     await delay(2000)
     if(leftDoorClosed == false)
     {
@@ -69,7 +69,7 @@ const foxyAttack = async() =>
         let choice = Math.floor(Math.random() * 2)
         bangArray[choice].play()
         await delay(bangArray[choice+2])
-        console.log("left")
+      //  console.log("left")
         foxyIsAtDoor = false
         foxyProgress = 0
         isRunning = false

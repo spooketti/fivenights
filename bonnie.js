@@ -11,11 +11,12 @@ show stage + dining + backstage + left hall + closet left corner doorway office
 */
 function bonnieMovement()
 {
-let chance = Math.floor(Math.random() * 20)
+let chance = Math.round(Math.random() * 20 + 1)
 if(bonnieAI<chance)
 {
     return;
 }
+//console.log(chance)
 switch(bonnieProgress)
 {
     case 6:
@@ -36,6 +37,6 @@ switch(bonnieProgress)
 }
 
 
-console.log(bonnieProgress)
+//console.log(bonnieProgress)
 }
 

@@ -10,7 +10,7 @@ let bangArray = [shortBang,longBang,3000,7000]if()
 */
 function chicaMovement()
 {
-let chance = Math.floor(Math.random() * 20)
+let chance = Math.floor(Math.random() * 20 + 1)
 if(chicaAI<chance)
 {
     return;
