@@ -104,5 +104,5 @@ let aiNight =
 window.addEventListener("load", updateMainMenu);
 function updateMainMenu()
 {
-    nightName = currentNight
+    nightName.innerText = "Night " + currentNight
 }
