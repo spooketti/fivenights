@@ -1,4 +1,12 @@
 let currentNight = 1
+if(!localStorage.currentNight)
+{
+    localStorage.currentNight = 1
+}
+else
+{
+    currentNight = parseInt(localStorage.currentNight)
+}
 let nightIntermission = document.getElementById("nightIntermission")
 let mainMenu = document.getElementById("mainMenu")
 let menuStatic = document.getElementById("menuStatic")
@@ -61,7 +69,8 @@ const nightWon = async() =>
     {
         currentNight++
         startNight()
-        sixamWinSound.style.display = "none"
+        sixamWinSound.pause()
+        SIXAM.style.display = "none"
     }
 
 }
