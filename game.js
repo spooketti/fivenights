@@ -15,6 +15,19 @@ let nightMarker = document.getElementById("nightMarker")
 let SIXAM = document.getElementById("SIXAM")
 let isGaming = false
 let sixamWinSound = new Audio("assets/sounds/chimes.wav")
+
+function stopEveryone()
+{
+    clearInterval(freddyInterval)
+    clearInterval(bonnieInterval)
+    clearInterval(chicaInterval)
+    clearInterval(foxyInterval)
+    clearInterval(timeClock)
+    clearInterval(powerInterval)
+}
+
+stopEveryone()
+
 const startNight = async() =>
 {
     nightName.innerText = `Night ${currentNight}`
@@ -23,12 +36,7 @@ const startNight = async() =>
     hour = 0
     localStorage.currentNight = currentNight
     isGaming = true
-    clearInterval(freddyInterval)
-    clearInterval(bonnieInterval)
-    clearInterval(chicaInterval)
-    clearInterval(foxyInterval)
-    clearInterval(timeClock)
-    clearInterval(powerInterval)
+    stopEveryone()
     mainMenu.style.display = "none"
     menuStatic.style.display = "none"
     nightIntermission.style.display = "block"
