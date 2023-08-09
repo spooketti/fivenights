@@ -11,11 +11,14 @@ let nightIntermission = document.getElementById("nightIntermission")
 let mainMenu = document.getElementById("mainMenu")
 let menuStatic = document.getElementById("menuStatic")
 let nightName = document.getElementById("nightname")
+let nightMarker = document.getElementById("nightMarker")
 let SIXAM = document.getElementById("SIXAM")
 let isGaming = false
 let sixamWinSound = new Audio("assets/sounds/chimes.wav")
 const startNight = async() =>
 {
+    nightName.innerText = `Night ${currentNight}`
+    nightMarker.innerText = `Night ${currentNight}`
     hour = 0
     localStorage.currentNight = currentNight
     isGaming = true
@@ -38,7 +41,6 @@ const startNight = async() =>
     foxyInterval = window.setInterval(foxyMovement,5000)
     timeClock = window.setInterval(passHour,90000)
     powerInterval = window.setInterval(powerDrain,1000)
-    nightName.innerText = `Night ${currentNight}`
     clockUI.innerText = `12 AM\nNight ${currentNight}`
     nightIntermission.style.display = "none"
     power=100

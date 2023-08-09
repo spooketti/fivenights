@@ -1,8 +1,8 @@
 let farLeft = 0;
 let farRight = -280;
 let office = document.getElementById("office")
-let currentTransform = -120
-//office.style.transform = "translate(-120px)"
+let currentTransform = -280
+//office.style.transform = "0px"
 let doorSound = new Audio("assets/sounds/door.ogg")
 let lightSound = new Audio("assets/sounds/light.ogg")
 let failSound = new Audio("assets/sounds/error.wav")
@@ -24,7 +24,8 @@ clearInterval(moveInterval)
 
 window.onload = function()
 {
-    office.style.transform = `translate(-120px)`
+    clearInterval(moveInterval)
+    office.style.transform = "translate(-280px)"
 }
 
 function logId(id)
