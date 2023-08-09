@@ -379,3 +379,9 @@ pointer-events: none;
     left:0;
     display:none;
 }
+
+#usageArray
+{
+    display: grid;
+    grid-template-rows: repeat(5,1fr);
+}

@@ -32,7 +32,8 @@ if(cameraOpen)
     cameras.style.display = "block"
     flipAnimation.src = `assets/cameraUp.gif`
     await delay(500)
-    
+    usage++
+    powerUI.innerHTML = `Power left:${Math.round(power)}% <br> Usage:<img src="assets/power${usage}.png">`
     cameraButtons.style.display = "block"
     CamMap.style.display = "block"
     isAnimating = false
@@ -48,7 +49,8 @@ if(cameraOpen)
     cameraButtons.style.display = "none"
     stunFoxy()
     await delay(500)
-    
+    usage--
+    powerUI.innerHTML = `Power left:${Math.round(power)}% <br> Usage:<img src="assets/power${usage}.png">`
     isAnimating = false
     cameras.style.display = "none"
 }

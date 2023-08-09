@@ -115,6 +115,16 @@ doorSound.pause()
     rightDoorModel.src = `assets/rDoor${rightDoorClosed.toString()}.gif`
     }
 rightDoorPanel.src = `assets/door_panel/rDoor${rightDoorClosed.toString()}rLight${rightLightOn}.webp`
+if(rightDoorClosed)
+{
+    usage++
+    powerUI.innerHTML = `Power left:${Math.round(power)}% <br> Usage:<img src="assets/power${usage}.png">`
+}
+else
+{
+    usage--
+    powerUI.innerHTML = `Power left:${Math.round(power)}% <br> Usage:<img src="assets/power${usage}.png">`
+}
 }
 
 function leftLight()
@@ -136,6 +146,7 @@ office.style.backgroundImage = `url("./assets/officelLight${leftLightOn}rLightfa
 lightSound.pause()
 if(leftLightOn)
 {
+    usage++
     lightSound.pause()
     lightSound.currentTime = 0
     lightSound.play()
@@ -146,6 +157,11 @@ if(leftLightOn)
         windowScare.play()
     }
 }
+else
+{
+    usage--
+}
+powerUI.innerHTML = `Power left:${Math.round(power)}% <br> Usage:<img src="assets/power${usage}.png">`
 }
 
 
@@ -184,6 +200,16 @@ function leftDoor()
     {
         alert("death")
     }
+    if(leftDoorClosed)
+    {
+        usage++
+        powerUI.innerHTML = `Power left:${Math.round(power)}% <br> Usage:<img src="assets/power${usage}.png">`
+    }
+    else
+    {
+        usage--
+        powerUI.innerHTML = `Power left:${Math.round(power)}% <br> Usage:<img src="assets/power${usage}.png">`
+    }
 }
 
 function rightLight()
@@ -205,6 +231,7 @@ office.style.backgroundImage = `url("./assets/officelLightfalserLight${rightLigh
 lightSound.pause()
 if(rightLightOn)
 {
+    usage++
     lightSound.pause()
     lightSound.currentTime = 0
     lightSound.play()
@@ -215,4 +242,9 @@ if(rightLightOn)
         windowScare.play()
     }
 }
+else
+{
+usage--
+}
+powerUI.innerHTML = `Power left:${Math.round(power)}% <br> Usage:<img src="assets/power${usage}.png">`
 }
