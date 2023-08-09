@@ -248,3 +248,26 @@ usage--
 }
 powerUI.innerHTML = `Power left:${Math.round(power)}% <br> Usage:<img src="assets/power${usage}.png">`
 }
+
+document.addEventListener("keypress",function(e)
+{
+switch(e.key)
+{
+    case "a":
+        leftDoor()
+    break;
+    case "d":
+        rightDoor()
+    break;
+    case "s":
+        activationAnimation()
+    break;
+    case "q":
+        leftLight()
+    break;
+    case "e":
+        rightLight()
+    break;
+    
+}
+})
