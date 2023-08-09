@@ -10,6 +10,7 @@ let fStage = document.getElementById("fStage")
 let bStage = document.getElementById("bStage")
 let cStage = document.getElementById("cStage")
 let cameraSwap = new Audio("assets/sounds/cameraSwap.wav")
+let cameraFlip = new Audio("assets/sounds/flip.wav")
 let isAnimating = false
 let cameraOpen = false
 
@@ -20,6 +21,9 @@ if(isAnimating)
 {
     return
 }
+cameraFlip.pause()
+cameraFlip.currentTime = 0
+cameraFlip.play()
 cameraOpen = !cameraOpen
 isAnimating = true
 if(cameraOpen)

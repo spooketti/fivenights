@@ -19,6 +19,7 @@ const startNight = async() =>
 {
     nightName.innerText = `Night ${currentNight}`
     nightMarker.innerText = `Night ${currentNight}`
+    jammed = false
     hour = 0
     localStorage.currentNight = currentNight
     isGaming = true
@@ -67,7 +68,9 @@ function newGame()
 
 const nightWon = async() =>
 {
+    
     SIXAM.style.display = "block"
+    SIXAM.src = "assets/sixam.gif"
     sixamWinSound.pause()
     sixamWinSound.currentTime = 0
     sixamWinSound.play()
@@ -81,6 +84,7 @@ const nightWon = async() =>
     }
     currentCamera = "ONEA"
     await delay(8000)
+    SIXAM.src = ""
     if(currentNight<5)
     {
         currentNight++
