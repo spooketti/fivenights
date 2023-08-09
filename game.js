@@ -16,6 +16,8 @@ let isGaming = false
 let sixamWinSound = new Audio("assets/sounds/chimes.wav")
 const startNight = async() =>
 {
+    hour = 0
+    localStorage.currentNight = currentNight
     isGaming = true
     clearInterval(freddyInterval)
     clearInterval(bonnieInterval)
@@ -26,6 +28,9 @@ const startNight = async() =>
     mainMenu.style.display = "none"
     menuStatic.style.display = "none"
     nightIntermission.style.display = "block"
+    cameraSwap.pause()
+    cameraSwap.currentTime = 0
+    cameraSwap.play()
     await delay(1000)
     freddyInterval = window.setInterval(freddyMovement,5000)
     bonnieInterval = window.setInterval(bonnieMovement,4970)
@@ -64,6 +69,15 @@ const nightWon = async() =>
     sixamWinSound.pause()
     sixamWinSound.currentTime = 0
     sixamWinSound.play()
+    if(leftDoorClosed)
+    {
+        leftDoor()
+    }
+    if(rightDoorClosed)
+    {
+        rightDoor()
+    }
+    currentCamera = "ONEA"
     await delay(8000)
     if(currentNight<5)
     {
@@ -86,3 +100,9 @@ let aiNight =
     [3,5,7,5],
     [4,10,12,16]
 ]
+
+window.addEventListener("load", updateMainMenu);
+function updateMainMenu()
+{
+    nightName = currentNight
+}

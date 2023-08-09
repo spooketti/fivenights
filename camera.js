@@ -9,6 +9,7 @@ let stageHolder = document.getElementById("stageDiv")
 let fStage = document.getElementById("fStage")
 let bStage = document.getElementById("bStage")
 let cStage = document.getElementById("cStage")
+let cameraSwap = new Audio("assets/sounds/cameraSwap.wav")
 let isAnimating = false
 let cameraOpen = false
 
@@ -158,6 +159,9 @@ function changeCamera(camera)
 {
     document.getElementById(currentCamera).style.animation = null
     currentCamera = camera
+    cameraSwap.pause()
+    cameraSwap.currentTime = 0
+    cameraSwap.play()
     playTransition()
    
     
