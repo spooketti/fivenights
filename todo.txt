@@ -6,3 +6,9 @@ possible settings:
 add changable cameras
 add power drain and usage
 get a life
+floating fazbear
+fan alignment issues
+office refresh bug
+missing freddy honk
+really loud chica soudns
+camera not fliping down
