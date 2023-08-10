@@ -36,6 +36,7 @@ switch(freddyProgress)
     case 3:
         poweroutmusic.pause()
         freddyProgress++
+        laugh[laugh[Math.floor(Math.random() * laugh.length)].play()]
     break;
     case 5: //corner
     if(cameraOpen==false)
