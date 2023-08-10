@@ -385,3 +385,15 @@ pointer-events: none;
     display: grid;
     grid-template-rows: repeat(5,1fr);
 }
+
+#freddyNose
+{
+    background-color: transparent;
+    border:none;
+    position: fixed;
+    z-index: 3;
+    left:42%;
+    width:10px;
+    height:10px;
+    top:32%;
+}

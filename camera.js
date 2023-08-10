@@ -28,7 +28,6 @@ cameraOpen = !cameraOpen
 isAnimating = true
 if(cameraOpen)
 {
-   
     cameras.style.display = "block"
     flipAnimation.src = `assets/cameraUp.gif`
     usage++
@@ -56,6 +55,10 @@ if(cameraOpen)
     powerUI.innerHTML = `Power left:${Math.round(power)}% <br> Usage:<img src="assets/power${usage}.png">`
     isAnimating = false
     cameras.style.display = "none"
+    
+    poweroutmusic.volume = 0.2
+    kitchenSound.volume = 0.2
+    runningSound.volume = 0.3
 }
 
 const playTransition = async() =>
@@ -125,6 +128,7 @@ const playTransition = async() =>
             }
             else if(foxyProgress==3)
             {
+                runningSound.volume = 1
                 flipAnimation.src = `assets/camera/CAM_TWOA_BfalseF${foxyProgress==3}.webp`
                 earlyReveal = true
                 foxyAttack()
@@ -135,6 +139,12 @@ const playTransition = async() =>
             }
 
             
+        break;
+        case "SIX":
+            flipAnimation.src = "assets/camera/CAM_SIX.webp"
+            poweroutmusic.volume = 1
+            kitchenSound.volume = 1
+           // runningSound.volume = 1
         break;
         case "FOURA":
             flipAnimation.src = `assets/camera/CAM_FOURA-FfalseC${chicaProgress==4}.webp`
@@ -158,7 +168,9 @@ const playTransition = async() =>
         break;
         default:
             flipAnimation.src = `assets/camera/CAM_${currentCamera}.webp`
-
+            poweroutmusic.volume = 0.2
+            kitchenSound.volume = 0.2
+            runningSound.volume = 0.3
         break;
         
     }

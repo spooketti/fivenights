@@ -6,6 +6,7 @@ let currentTransform = -280
 let doorSound = new Audio("assets/sounds/door.ogg")
 let lightSound = new Audio("assets/sounds/light.ogg")
 let failSound = new Audio("assets/sounds/error.wav")
+let honkSound = new Audio("assets/sounds/honk.mp3")
 let direction
 let moveInterval
 let officeMoverLeft = document.getElementById("fastLeft")
@@ -169,7 +170,12 @@ else if(usage!=0)
 powerUI.innerHTML = `Power left:${Math.round(power)}% <br> Usage:<img src="assets/power${usage}.png">`
 }
 
-
+function honk()
+{
+    honkSound.pause()
+    honkSound.currentTime = 0
+    honkSound.play()
+}
 
 function leftDoor()
 {
@@ -177,10 +183,10 @@ function leftDoor()
     leftDoorClosed = !leftDoorClosed
     if((bonnieProgress==7||chicaProgress==7||jammed))
     {
-        if(!leftDoorClosed==true)
+        if(leftDoorClosed==false)
         {
 
-                leftDoorClosed.src = `assets/lDoorfalse.gif`
+                leftDoorModel.src = `assets/lDoorfalse.gif`
                 doorSound.pause()
     doorSound.currentTime = 0
     doorSound.play()

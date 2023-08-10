@@ -23,7 +23,20 @@ const powerOut = async() =>
     powerUI.style.zIndex = "-1"
     //powerDSound.pause()
     powerDSound.play()
-    console.log("roku")
+    poweroutmusic.volume = 1
+    //console.log("roku")
     office.style.backgroundImage = "url(assets/powerout_false.webp)"
     fan.style.display = "none"
+    leftDoorPanel.style.display = "none"
+    rightDoorPanel.style.display = "none"
+    cameraOpen = true
+    activationAnimation()
+    leftDoorClosed = true
+    leftDoor()
+    rightDoorClosed = true
+    rightDoor()
+    leftLightOn = false
+    rightLightOn = false
+    lightSound.pause()
+    usage = 0
 }

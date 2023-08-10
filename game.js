@@ -90,6 +90,8 @@ const nightWon = async() =>
     cameraButton.style.zIndex = "4"
     blackOut = false
     powerUI.style.zIndex = "4"
+    leftDoorPanel.style.display = null
+    rightDoorPanel.style.display = null
     fan.style.display = null
     SIXAM.style.display = "block"
     SIXAM.src = "assets/sixam.gif"
