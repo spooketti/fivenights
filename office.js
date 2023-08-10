@@ -210,7 +210,7 @@ function leftDoor()
         usage++
        // powerUI.innerHTML = `Power left:${Math.round(power)}% <br> Usage:<img src="assets/power${usage}.png">`
     }
-    else if(jammed=false)
+    else if(jammed==false)
     {
         usage--
         //powerUI.innerHTML = `Power left:${Math.round(power)}% <br> Usage:<img src="assets/power${usage}.png">`
