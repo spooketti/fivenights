@@ -31,8 +31,8 @@ if(cameraOpen)
    
     cameras.style.display = "block"
     flipAnimation.src = `assets/cameraUp.gif`
-    await delay(500)
     usage++
+    await delay(500)
     powerUI.innerHTML = `Power left:${Math.round(power)}% <br> Usage:<img src="assets/power${usage}.png">`
     cameraButtons.style.display = "block"
     CamMap.style.display = "block"
@@ -42,6 +42,10 @@ if(cameraOpen)
     changeCamera(currentCamera)
     return
 }
+
+
+
+    usage--
     stageHolder.style.display = "none"
     flipAnimation.src = `assets/cameraDown.gif`
     static.style.display = 'none'
@@ -49,7 +53,6 @@ if(cameraOpen)
     cameraButtons.style.display = "none"
     stunFoxy()
     await delay(500)
-    usage--
     powerUI.innerHTML = `Power left:${Math.round(power)}% <br> Usage:<img src="assets/power${usage}.png">`
     isAnimating = false
     cameras.style.display = "none"
