@@ -139,6 +139,10 @@ if(bonnieProgress==7||chicaProgress==7||jammed)
         failSound.currentTime = 0
         failSound.play()
     }
+    if(rightLightOn)
+{
+    usage--
+}
 rightLightOn = false
 rightDoorPanel.src = `assets/door_panel/rDoor${rightDoorClosed.toString()}rLight${rightLightOn}.webp`
 leftDoorPanel.src = `assets/door_panel/lDoor${leftDoorClosed.toString()}lLight${leftLightOn}.webp`
@@ -158,6 +162,10 @@ if(leftLightOn)
     }
 }
 else
+{
+    usage--
+}
+if(rightLightOn)
 {
     usage--
 }
@@ -224,6 +232,10 @@ if(bonnieProgress==7||chicaProgress==7||jammed)
         failSound.currentTime = 0
         failSound.play()
     }
+    if(leftLightOn)
+{
+    usage--
+}
 leftLightOn = false
 leftDoorPanel.src = `assets/door_panel/lDoor${leftDoorClosed.toString()}lLight${leftLightOn}.webp`
 rightDoorPanel.src = `assets/door_panel/rDoor${rightDoorClosed.toString()}rLight${rightLightOn}.webp`
@@ -246,6 +258,7 @@ else
 {
 usage--
 }
+
 powerUI.innerHTML = `Power left:${Math.round(power)}% <br> Usage:<img src="assets/power${usage}.png">`
 }
 
@@ -268,6 +281,6 @@ switch(e.key)
     case "e":
         rightLight()
     break;
-    
+
 }
 })
