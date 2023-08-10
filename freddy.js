@@ -35,6 +35,7 @@ switch(freddyProgress)
     break;
     case 3:
         poweroutmusic.pause()
+        freddyProgress++
     break;
     case 5: //corner
     if(cameraOpen==false)
