@@ -38,7 +38,7 @@ const stunFoxy = async () =>
 const foxySprint = async () =>
 {
    // console.log("countdown began")
-    await delay(25000)
+    await delay(10000)
     if(!earlyReveal)
     {
         foxyAttack()
