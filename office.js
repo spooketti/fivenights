@@ -259,7 +259,7 @@ usage--
 
 powerUI.innerHTML = `Power left:${Math.round(power)}% <br> Usage:<img src="assets/power${usage}.png">`
 }
-
+/*
 document.addEventListener("keypress",function(e)
 {
 switch(e.key)
@@ -282,3 +282,5 @@ switch(e.key)
 
 }
 })
+reinstate this if the power usage dupe gets patched
+*/
