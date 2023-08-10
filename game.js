@@ -1,12 +1,16 @@
 let currentNight = 1
+let mainFiveCompleted = false
 if(!localStorage.currentNight)
 {
     localStorage.currentNight = 1
+    localStorage.mainFiveCompleted = false
 }
 else
 {
     currentNight = parseInt(localStorage.currentNight)
+    mainFiveCompleted = Boolean(localStorage.mainFiveCompleted)
 }
+
 let nightIntermission = document.getElementById("nightIntermission")
 let mainMenu = document.getElementById("mainMenu")
 let menuStatic = document.getElementById("menuStatic")
@@ -15,6 +19,7 @@ let nightMarker = document.getElementById("nightMarker")
 let SIXAM = document.getElementById("SIXAM")
 let isGaming = false
 let sixamWinSound = new Audio("assets/sounds/chimes.wav")
+
 
 function stopEveryone()
 {
@@ -93,12 +98,19 @@ const nightWon = async() =>
     currentCamera = "ONEA"
     await delay(8000)
     SIXAM.src = ""
-    if(currentNight<5)
+    switch(currentNight)
     {
+        case 5:
+            alert("won!!!")
+            localStorage.mainFiveCompleted = true
+            mainFiveCompleted = true
+        break;
+        default:
         currentNight++
         startNight()
         sixamWinSound.pause()
         SIXAM.style.display = "none"
+        break;
     }
 
 }
