@@ -136,7 +136,7 @@ html,body
 
 #fan
 {
-    position: absolute;
+    position: fixed;
     left: 49.1%;
     top: 42.9%;
 }

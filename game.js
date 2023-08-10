@@ -17,6 +17,7 @@ let menuStatic = document.getElementById("menuStatic")
 let nightName = document.getElementById("nightname")
 let nightMarker = document.getElementById("nightMarker")
 let SIXAM = document.getElementById("SIXAM")
+let nightStarted = false
 let isGaming = false
 let sixamWinSound = new Audio("assets/sounds/chimes.wav")
 
@@ -35,6 +36,7 @@ stopEveryone()
 
 const startNight = async() =>
 {
+    nightStarted = true
     nightName.innerText = `Night ${currentNight}`
     nightMarker.innerText = `Night ${currentNight}`
     jammed = false
@@ -81,7 +83,14 @@ function newGame()
 
 const nightWon = async() =>
 {
-    
+    powerDSound.pause()
+    powerDSound.currentTime = 0
+    nightStarted = false
+    office.style.backgroundImage = "url(assets/officelLightfalserLightfalseBfalseCfalse.webp)"
+    cameraButton.style.zIndex = "4"
+    blackOut = false
+    powerUI.style.zIndex = "4"
+    fan.style.display = null
     SIXAM.style.display = "block"
     SIXAM.src = "assets/sixam.gif"
     sixamWinSound.pause()
@@ -97,6 +106,7 @@ const nightWon = async() =>
     }
     currentCamera = "ONEA"
     await delay(8000)
+    //power = 100
     SIXAM.src = ""
     switch(currentNight)
     {

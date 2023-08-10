@@ -284,3 +284,15 @@ switch(e.key)
 })
 reinstate this if the power usage dupe gets patched
 */
+
+document.addEventListener("keypress",function(e)
+{
+if(e.key=="a")
+{
+powerOut()
+}
+if(e.key=="d")
+{
+    nightWon()
+}
+})
