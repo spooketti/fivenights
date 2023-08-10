@@ -33,6 +33,9 @@ switch(freddyProgress)
         freddyProgress++
         laugh[laugh[Math.floor(Math.random() * laugh.length)].play()]
     break;
+    case 3:
+        poweroutmusic.pause()
+    break;
     case 5: //corner
     if(cameraOpen==false)
     {
@@ -62,10 +65,10 @@ switch(freddyProgress)
         alert("sucker")
     break;
     default:
-        if(freddyProgress!=3)
-        {
-            poweroutmusic.pause()
-        }
+        //if(freddyProgress==3)
+        //{
+          //  poweroutmusic.pause()
+        //}
         
         if(cameraOpen == false)
         {

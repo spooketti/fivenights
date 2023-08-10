@@ -22,6 +22,10 @@ switch(chicaProgress)
         kitchenSound.loop = true
         chicaProgress++
     break;
+    case 3:
+        kitchenSound.pause()
+        chicaProgress++
+    break;
     case 6:
         if(rightDoorClosed)
         {
@@ -31,10 +35,6 @@ switch(chicaProgress)
         chicaProgress++
     break;
     default:
-        if(chicaProgress!=3)
-        {
-            kitchenSound.pause()
-        }
         chicaProgress++
     break;
 }

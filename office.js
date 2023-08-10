@@ -118,13 +118,14 @@ rightDoorPanel.src = `assets/door_panel/rDoor${rightDoorClosed.toString()}rLight
 if(rightDoorClosed)
 {
     usage++
-    powerUI.innerHTML = `Power left:${Math.round(power)}% <br> Usage:<img src="assets/power${usage}.png">`
+   // powerUI.innerHTML = `Power left:${Math.round(power)}% <br> Usage:<img src="assets/power${usage}.png">`
 }
-else
+else if(jammed==false)
 {
     usage--
     powerUI.innerHTML = `Power left:${Math.round(power)}% <br> Usage:<img src="assets/power${usage}.png">`
 }
+powerUI.innerHTML = `Power left:${Math.round(power)}% <br> Usage:<img src="assets/power${usage}.png">`
 }
 
 function leftLight()
@@ -161,11 +162,7 @@ if(leftLightOn)
         windowScare.play()
     }
 }
-else
-{
-    usage--
-}
-if(rightLightOn)
+else if(usage!=0)
 {
     usage--
 }
@@ -211,13 +208,14 @@ function leftDoor()
     if(leftDoorClosed)
     {
         usage++
-        powerUI.innerHTML = `Power left:${Math.round(power)}% <br> Usage:<img src="assets/power${usage}.png">`
+       // powerUI.innerHTML = `Power left:${Math.round(power)}% <br> Usage:<img src="assets/power${usage}.png">`
     }
-    else
+    else if(jammed=false)
     {
         usage--
-        powerUI.innerHTML = `Power left:${Math.round(power)}% <br> Usage:<img src="assets/power${usage}.png">`
+        //powerUI.innerHTML = `Power left:${Math.round(power)}% <br> Usage:<img src="assets/power${usage}.png">`
     }
+    powerUI.innerHTML = `Power left:${Math.round(power)}% <br> Usage:<img src="assets/power${usage}.png">`
 }
 
 function rightLight()
@@ -254,7 +252,7 @@ if(rightLightOn)
         windowScare.play()
     }
 }
-else
+else if(usage!=0)
 {
 usage--
 }
