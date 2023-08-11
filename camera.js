@@ -110,7 +110,7 @@ const playTransition = async() =>
 
         
         fStage.style.display = visibiltiyDict(freddyProgress)
-        bStage.style.display = visibiltiyDict(bonnieProgress)
+       // bStage.style.display = visibiltiyDict(bonnieProgress)
         cStage.style.display = visibiltiyDict(chicaProgress)
         break;
         case "ONEC":
