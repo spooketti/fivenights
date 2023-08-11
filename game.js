@@ -61,10 +61,10 @@ const startNight = async() =>
     cameraSwap.pause()
     cameraSwap.currentTime = 0
     cameraSwap.play()
-    ldB.style.display = "none"
-    rdB.style.display = "none"
-    llB.style.display = "none"
-    rlB.style.display = "none"
+    ldB.style.display = null
+    rdB.style.display = null
+    llB.style.display = null
+    rlB.style.display = null
     await delay(1000)
     freddyInterval = window.setInterval(freddyMovement,5000)
     bonnieInterval = window.setInterval(bonnieMovement,4970)
