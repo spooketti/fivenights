@@ -22,6 +22,7 @@ let isGaming = false
 let sixamWinSound = new Audio("assets/sounds/chimes.wav")
 let jumpScream = new Audio("assets/sounds/jumpScream.wav")
 let staticSound = new Audio("assets/sounds/died.wav")
+let fanbuzz = new Audio("assets/sounds/fanbuzz.wav")
 let chosenNight = 6
 let storyNight = currentNight
 
@@ -75,6 +76,8 @@ const startNight = async() =>
     freddyProgress = 0
     chicaProgress = 0
     office.style.backgroundImage = "url(assets/officelLightfalserLightfalseBfalseCfalse.webp)"
+    fanbuzz.play()
+    fanbuzz.loop = true
 
     if(currentNight!=7)
     {
@@ -96,6 +99,7 @@ function newGame()
 const nightWon = async() =>
 {
     powerDSound.pause()
+    fanbuzz.pause()
     powerDSound.currentTime = 0
     nightStarted = false
     office.style.backgroundImage = "url(assets/officelLightfalserLightfalseBfalseCfalse.webp)"
@@ -168,6 +172,7 @@ function updateMainMenu()
 const death = async() =>
 {
     stopEveryone()
+    fanbuzz.pause()
     currentNight = storyNight
     storyNight = currentNight
     await delay(1000)
