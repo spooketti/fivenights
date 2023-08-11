@@ -21,6 +21,10 @@ let rightDoorClosed = false;
 let leftLightOn = false;
 let rightLightOn = false;
 let jammed = false
+let ldB = document.getElementById("leftDoorButton")
+let rdB = document.getElementById("rightDoorButton")
+let llB = document.getElementById("leftLightButton")
+let rlB = document.getElementById("rightLightButton")
 
 clearInterval(moveInterval)
 

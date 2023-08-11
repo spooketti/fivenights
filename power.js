@@ -39,4 +39,8 @@ const powerOut = async() =>
     rightLightOn = false
     lightSound.pause()
     usage = 0
+    llB.style.display = "none"
+    rlB.style.display = "none"
+    ldB.style.display = "none"
+    rdB.style.display = "none"
 }
