@@ -129,6 +129,7 @@ const nightWon = async() =>
     await delay(8000)
     //power = 100
     SIXAM.src = ""
+    sixamWinSound.style.display = "none"
     switch(currentNight)
     {
         case 5:
