@@ -139,6 +139,8 @@ html,body
     position: fixed;
     left: 49.1%;
     top: 42.9%;
+    height:26.3%;
+    width:7.5%;
 }
 
 #cameraToggler
