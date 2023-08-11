@@ -1,7 +1,7 @@
 let power = 100
 let blackOut = false
 let usage = 0;
-let drainRates = [0.141,.235,.341,.447,.7]
+let drainRates = [0.1,.235,.341,.447,.7]
 let powerUI = document.getElementById("powerUI")
 let powerInterval = window.setInterval(powerDrain, 1000);
 let fan = document.getElementById("fan")
