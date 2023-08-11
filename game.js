@@ -78,6 +78,7 @@ const startNight = async() =>
     office.style.backgroundImage = "url(assets/officelLightfalserLightfalseBfalseCfalse.webp)"
     fanbuzz.play()
     fanbuzz.loop = true
+    fanbuzz.volume = 0.2
 
     if(currentNight!=7)
     {
@@ -98,6 +99,7 @@ function newGame()
 
 const nightWon = async() =>
 {
+    stopEveryone()
     powerDSound.pause()
     fanbuzz.pause()
     powerDSound.currentTime = 0
@@ -139,6 +141,7 @@ const nightWon = async() =>
         case 6:
             currentNight = storyNight
             storyNight = currentNight
+            death()
         break;
         default:
         currentNight++
