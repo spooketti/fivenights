@@ -3,12 +3,18 @@ add sounds (consider modding options)
 make settings panel
 possible settings:
 [freddy subtitles(it's documented when he laughs)]
-add changable cameras
-add power drain and usage
-get a life
-floating fazbear
+
 fan alignment issues
 office refresh bug
-missing freddy honk
-really loud chica soudns
-camera not fliping down
+
+floating animtaronics
+
+can't look all the way right (not sure what causes thsi)
+
+make images not selectable
+door cooldown (short!)
+
+
+jumpscares (gfreddy and power out)
+
+

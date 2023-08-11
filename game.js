@@ -22,6 +22,8 @@ let isGaming = false
 let sixamWinSound = new Audio("assets/sounds/chimes.wav")
 let jumpScream = new Audio("assets/sounds/jumpscream.wav")
 let staticSound = new Audio("assets/sounds/died.wav")
+let chosenNight = 6
+let storyNight = currentNight
 
 
 function stopEveryone()
@@ -39,7 +41,7 @@ stopEveryone()
 const startNight = async() =>
 {
     nightStarted = true
-    nightName.innerText = `Night ${currentNight}`
+    nightName.innerText = `Night ${storyNight}`
     nightMarker.innerText = `Night ${currentNight}`
     jammed = false
     hour = 0
@@ -123,12 +125,19 @@ const nightWon = async() =>
     switch(currentNight)
     {
         case 5:
-            alert("won!!!")
+            //alert("won!!!")
+            storyNight = 5
             localStorage.mainFiveCompleted = true
             mainFiveCompleted = true
+            death()
+        break;
+        case 6:
+            currentNight = storyNight
+            storyNight = currentNight
         break;
         default:
         currentNight++
+        storyNight = currentNight
         startNight()
         sixamWinSound.pause()
         SIXAM.style.display = "none"
@@ -158,6 +167,8 @@ function updateMainMenu()
 const death = async() =>
 {
     stopEveryone()
+    currentNight = storyNight
+    storyNight = currentNight
     await delay(1000)
     jumpScream.pause()
     jumpScream.currentTime = 0
@@ -180,4 +191,12 @@ const death = async() =>
 function callDeath()
 {
     death()
+}
+
+function nightSix()
+{
+    chosenNight = 6
+    storyNight = localStorage.currentNight
+    currentNight = chosenNight
+    startNight()
 }

@@ -21,6 +21,7 @@ let rightDoorClosed = false;
 let leftLightOn = false;
 let rightLightOn = false;
 let jammed = false
+
 clearInterval(moveInterval)
 
 window.onload = function()
@@ -270,6 +271,8 @@ usage--
 
 powerUI.innerHTML = `Power left:${Math.round(power)}% <br> Usage:<img src="assets/power${usage}.png">`
 }
+
+
 /*
 document.addEventListener("keypress",function(e)
 {

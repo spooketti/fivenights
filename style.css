@@ -325,6 +325,18 @@ html,body
     top:60%;
     left:10%; 
 }
+
+#nightsix
+{
+    color: white;
+    background-color:transparent;
+    border: none;
+    font-size: large;
+    font-family: 'Press Start 2P', cursive;
+    position: absolute;
+    top:70%;
+    left:10%;  
+}
 #menuStatic
 {
 position: absolute;
