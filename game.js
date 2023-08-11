@@ -89,6 +89,7 @@ const startNight = async() =>
 function newGame()
 {
     currentNight = 1;
+    storyNight = 1;
     startNight()
 }
 
@@ -171,6 +172,8 @@ const death = async() =>
     storyNight = currentNight
     await delay(1000)
     jumpScream.pause()
+    kitchenSound.pause()
+    poweroutmusic.pause()
     jumpScream.currentTime = 0
     menuStatic.style.opacity = "100%"
     menuStatic.style.display = "block"
