@@ -50,7 +50,7 @@ if(cameraOpen)
     static.style.display = 'none'
     CamMap.style.display = "none"
     cameraButtons.style.display = "none"
-    if(bonnieProgress==7)
+    if(bonnieProgress==7&&!blackOut)
     {
         fan.style.display = "none"
         leftDoorPanel.style.display = "none"
@@ -60,7 +60,7 @@ if(cameraOpen)
         jumpScream.play()
         callDeath()
     }
-    if(chicaProgress==7)
+    if(chicaProgress==7&&!blackOut)
     {
         fan.style.display = "none"
         leftDoorPanel.style.display = "none"

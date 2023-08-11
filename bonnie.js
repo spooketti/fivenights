@@ -28,6 +28,10 @@ switch(bonnieProgress)
         bonnieProgress=7
     break;
     case 7:
+        if(cameraOpen&&!blackOut)
+        {
+            activationAnimation()
+        }
     break;
     default:
         bonnieProgress++

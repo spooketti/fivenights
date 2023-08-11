@@ -64,6 +64,7 @@ switch(freddyProgress)
         }
     break;
     case 6: //office
+    if(!cameraOpen&&blackOut==false)
     fan.style.display = "none"
     leftDoorPanel.style.display = "none"
     rightDoorPanel.style.display = "none"

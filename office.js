@@ -184,7 +184,6 @@ function honk()
 
 function leftDoor()
 {
-    
     leftDoorClosed = !leftDoorClosed
     if((bonnieProgress==7||chicaProgress==7||jammed))
     {
@@ -212,7 +211,7 @@ function leftDoor()
     }
     
     leftDoorPanel.src = `assets/door_panel/lDoor${leftDoorClosed.toString()}lLight${leftLightOn}.webp`
-    if(foxyIsAtDoor==true && leftDoorClosed == false)
+    if(foxyIsAtDoor==true && leftDoorClosed == false && blackOut==false)
     {
         office.style.backgroundImage = "url(assets/jumpscares/foxyJPSC.webp)"
         leftDoorPanel.style.display = "none"
@@ -220,6 +219,7 @@ function leftDoor()
         rightDoorPanel.style.display = "none"
         usage = 0
         jumpScream.play()
+        callDeath()
     }
     if(leftDoorClosed)
     {

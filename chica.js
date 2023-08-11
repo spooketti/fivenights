@@ -35,6 +35,10 @@ switch(chicaProgress)
         chicaProgress++
     break;
     case 7:
+        if(cameraOpen&&!blackOut)
+        {
+       activationAnimation()
+        }
     break;
     default:
         chicaProgress++

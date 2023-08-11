@@ -58,6 +58,11 @@ const foxyAttack = async() =>
     foxyPowerPenalty+=5
    // console.log(foxyPowerPenalty)
     await delay(2000)
+    if(blackOut)
+    {
+        foxyProgress = 0
+        return;
+    }
     if(leftDoorClosed == false)
     {
         office.style.backgroundImage = "url(assets/jumpscares/foxyJPSC.webp)"
