@@ -50,6 +50,28 @@ if(cameraOpen)
     static.style.display = 'none'
     CamMap.style.display = "none"
     cameraButtons.style.display = "none"
+    if(bonnieProgress==7)
+    {
+        fan.style.display = "none"
+        leftDoorPanel.style.display = "none"
+        rightDoorPanel.style.display = "none"
+        cameraButton.style.zIndex = "-1"
+        office.style.backgroundImage = "url(assets/jumpscares/bonnieJPSC.webp)"
+        jumpScream.play()
+        callDeath()
+    }
+    if(chicaProgress==7)
+    {
+        fan.style.display = "none"
+        leftDoorPanel.style.display = "none"
+        rightDoorPanel.style.display = "none"
+        leftDoorModel.style.display = "none"
+        cameraButton.style.zIndex = "-1"
+        office.style.backgroundImage = "url(assets/jumpscares/chicaJPSC.webp)"
+        jumpScream.play()
+        callDeath()
+    }
+    
     stunFoxy()
     await delay(500)
     powerUI.innerHTML = `Power left:${Math.round(power)}% <br> Usage:<img src="assets/power${usage}.png">`

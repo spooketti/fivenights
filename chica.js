@@ -34,6 +34,8 @@ switch(chicaProgress)
         }
         chicaProgress++
     break;
+    case 7:
+    break;
     default:
         chicaProgress++
     break;

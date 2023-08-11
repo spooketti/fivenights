@@ -209,7 +209,12 @@ function leftDoor()
     leftDoorPanel.src = `assets/door_panel/lDoor${leftDoorClosed.toString()}lLight${leftLightOn}.webp`
     if(foxyIsAtDoor==true && leftDoorClosed == false)
     {
-        alert("death")
+        office.style.backgroundImage = "url(assets/jumpscares/foxyJPSC.webp)"
+        leftDoorPanel.style.display = "none"
+        leftDoorModel.style.display = "none"
+        rightDoorPanel.style.display = "none"
+        usage = 0
+        jumpScream.play()
     }
     if(leftDoorClosed)
     {

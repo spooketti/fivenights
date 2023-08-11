@@ -27,6 +27,8 @@ switch(bonnieProgress)
         }
         bonnieProgress=7
     break;
+    case 7:
+    break;
     default:
         bonnieProgress++
         if(bonnieProgress < 5)

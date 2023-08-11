@@ -20,6 +20,8 @@ let SIXAM = document.getElementById("SIXAM")
 let nightStarted = false
 let isGaming = false
 let sixamWinSound = new Audio("assets/sounds/chimes.wav")
+let jumpScream = new Audio("assets/sounds/jumpscream.wav")
+let staticSound = new Audio("assets/sounds/died.wav")
 
 
 function stopEveryone()
@@ -47,6 +49,12 @@ const startNight = async() =>
     mainMenu.style.display = "none"
     menuStatic.style.display = "none"
     nightIntermission.style.display = "block"
+    fan.style.display = null
+    leftDoorPanel.style.display = null
+    rightDoorPanel.style.display = null
+    cameraButton.style.zIndex = '4'
+    leftDoorModel.style.display = null
+    rightDoorModel.style.display = null
     cameraSwap.pause()
     cameraSwap.currentTime = 0
     cameraSwap.play()
@@ -64,6 +72,7 @@ const startNight = async() =>
     foxyProgress = 0
     freddyProgress = 0
     chicaProgress = 0
+    office.style.backgroundImage = "url(assets/officelLightfalserLightfalseBfalseCfalse.webp)"
 
     if(currentNight!=7)
     {
@@ -92,6 +101,7 @@ const nightWon = async() =>
     powerUI.style.zIndex = "4"
     leftDoorPanel.style.display = null
     rightDoorPanel.style.display = null
+    leftDoorModel.style.display = null
     fan.style.display = null
     SIXAM.style.display = "block"
     SIXAM.src = "assets/sixam.gif"
@@ -143,4 +153,31 @@ window.addEventListener("load", updateMainMenu);
 function updateMainMenu()
 {
     nightName.innerText = "Night " + currentNight
+}
+
+const death = async() =>
+{
+    stopEveryone()
+    await delay(1000)
+    jumpScream.pause()
+    jumpScream.currentTime = 0
+    menuStatic.style.opacity = "100%"
+    menuStatic.style.display = "block"
+    staticSound.pause()
+    staticSound.currentTime = 0
+    staticSound.play()
+    await delay(5000)
+    staticSound.pause()
+    nightStarted = false
+    menuStatic.style.opacity = "20%"
+    jammed = false
+    hour = 0
+    localStorage.currentNight = currentNight
+    isGaming = false
+    mainMenu.style.display = "block"
+}
+
+function callDeath()
+{
+    death()
 }

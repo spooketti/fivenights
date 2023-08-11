@@ -60,7 +60,13 @@ const foxyAttack = async() =>
     await delay(2000)
     if(leftDoorClosed == false)
     {
-        alert("haha loser")
+        office.style.backgroundImage = "url(assets/jumpscares/foxyJPSC.webp)"
+        leftDoorPanel.style.display = "none"
+        leftDoorModel.style.display = "none"
+        rightDoorPanel.style.display = "none"
+        usage = 0
+        jumpScream.play()
+        callDeath()
     }
     else
     {

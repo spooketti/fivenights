@@ -64,7 +64,14 @@ switch(freddyProgress)
         }
     break;
     case 6: //office
-        alert("sucker")
+    fan.style.display = "none"
+    leftDoorPanel.style.display = "none"
+    rightDoorPanel.style.display = "none"
+    cameraButton.style.zIndex = "-1"
+    rightDoorModel.style.display = "none"
+    office.style.backgroundImage = "url(assets/jumpscares/freddyJPSC.webp)"
+    jumpScream.play()
+    callDeath()
     break;
     default:
         //if(freddyProgress==3)
