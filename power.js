@@ -29,6 +29,7 @@ const powerOut = async() =>
     fan.style.display = "none"
     leftDoorPanel.style.display = "none"
     rightDoorPanel.style.display = "none"
+    fanbuzz.pause()
     cameraOpen = true
     activationAnimation()
     leftDoorClosed = true

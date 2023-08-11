@@ -46,7 +46,6 @@ const startNight = async() =>
     nightMarker.innerText = `Night ${currentNight}`
     jammed = false
     hour = 0
-    localStorage.currentNight = currentNight
     isGaming = true
     stopEveryone()
     mainMenu.style.display = "none"
@@ -66,6 +65,8 @@ const startNight = async() =>
     llB.style.display = null
     rlB.style.display = null
     await delay(1000)
+    currentNight = storyNight
+    localStorage.currentNight = currentNight
     freddyInterval = window.setInterval(freddyMovement,5000)
     bonnieInterval = window.setInterval(bonnieMovement,4970)
     chicaInterval = window.setInterval(chicaMovement,4800)
@@ -174,6 +175,10 @@ let aiNight =
 window.addEventListener("load", updateMainMenu);
 function updateMainMenu()
 {
+    if(currentNight==6)
+    {
+        nightName.innerText = "Night 5"
+    }
     nightName.innerText = "Night " + currentNight
 }
 
