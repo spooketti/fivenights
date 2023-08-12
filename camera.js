@@ -79,7 +79,7 @@ if(cameraOpen)
         jumpScream.play()
         death()
     }
-    if(Math.round(Math.random()*10)==5&&!blackOut)
+    if(Math.round(Math.random()*100)==5&&!blackOut)
     {
         canGoldenKill = true
         gFreddy.style.display = "block"
