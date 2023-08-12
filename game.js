@@ -49,6 +49,7 @@ stopEveryone()
 
 const startNight = async() =>
 {
+    powerUI.style.zIndex = "4"
     office.style.opacity = null
     nightStarted = true
     nightName.innerText = `Night ${storyNight}`
