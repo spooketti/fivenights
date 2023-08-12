@@ -11,8 +11,13 @@ let bStage = document.getElementById("bStage")
 let cStage = document.getElementById("cStage")
 let cameraSwap = new Audio("assets/sounds/cameraSwap.wav")
 let cameraFlip = new Audio("assets/sounds/flip.wav")
+let gfredSound = new Audio("assets/sounds/gfred.ogg")
+let gKillSound = new Audio("assets/sounds/gFredKill.ogg")
+let gFreddy = document.getElementById("gFreddy")
 let isAnimating = false
 let cameraOpen = false
+let canGoldenKill = false
+let gFredKill = document.getElementById("gFredKill")
 
 const delay = ms => new Promise(res => setTimeout(res, ms));
 const activationAnimation = async () =>
@@ -21,6 +26,7 @@ if(isAnimating)
 {
     return
 }
+canGoldenKill = false
 cameraFlip.pause()
 cameraFlip.currentTime = 0
 cameraFlip.play()
@@ -28,6 +34,7 @@ cameraOpen = !cameraOpen
 isAnimating = true
 if(cameraOpen)
 {
+    gfredSound.pause()
     cameras.style.display = "block"
     flipAnimation.src = `assets/cameraUp.gif`
     usage++
@@ -39,6 +46,7 @@ if(cameraOpen)
     static.style.display = 'block'
     document.getElementById(currentCamera).style.animation = "fadeInFromNone 2s ease infinite"
     changeCamera(currentCamera)
+    gFreddy.style.display = "none"
     return
 }
 
@@ -71,6 +79,14 @@ if(cameraOpen)
         jumpScream.play()
         death()
     }
+    if(Math.round(Math.random()*10)==5&&!blackOut)
+    {
+        canGoldenKill = true
+        gFreddy.style.display = "block"
+        gfredSound.play()
+        setTimeout(goldenFreddy,5000)
+    }
+    
     
     stunFoxy()
     await delay(500)
@@ -215,3 +231,15 @@ let cameraIterable = document.querySelectorAll(".cameraButton")
 cameraIterable.forEach(camera => {
   camera.addEventListener('click', () => changeCamera(camera.id));
 });
+
+const goldenFreddy = async() =>
+{
+    if(canGoldenKill)
+    {
+        gFredKill.style.display = "block"
+        gKillSound.play()
+        
+        await delay(4000)
+        window.location = "https://google.com"
+    }
+}

@@ -421,8 +421,25 @@ pointer-events: none;
     top:32%;
 }
 
-
-
+#gFreddy
+{
+    position: absolute;
+    bottom:0;
+    left:25%;
+    height:70%;
+    width:30%;
+    display: none;
+}
+#gFredKill
+{
+    position:absolute;
+    height:100%;
+    width:100%;
+    top:0;
+    left:0;
+    z-index: 999;
+    display: none;
+}
 /*
 what
 */

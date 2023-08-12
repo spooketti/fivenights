@@ -49,6 +49,7 @@ stopEveryone()
 
 const startNight = async() =>
 {
+    gfredSound.pause()
     powerUI.style.zIndex = "4"
     office.style.opacity = null
     nightStarted = true
