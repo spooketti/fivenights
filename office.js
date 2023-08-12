@@ -286,6 +286,10 @@ function freddySong()
 }
 function freddySongKillPhase()
 {
+    if(nightStarted==false)
+    {
+        return;
+    }
     chosenSong.pause()
     chosenSong.currentTime = 0
     office.style.opacity="0%"
@@ -294,6 +298,10 @@ function freddySongKillPhase()
 }
 function powerOutDeath()
 {
+    if(nightStarted==false)
+    {
+        return;
+    }
     office.style.opacity = null
     leftDoorModel.style.display = "none"
     office.style.backgroundImage = "url(assets/jumpscares/freddyPOJPSC.webp)"

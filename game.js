@@ -156,6 +156,7 @@ const nightWon = async() =>
             mainFiveCompleted = true
             death()
             nightsixButton.style.display = null
+            SIXAM.style.display = "none"
         break;
         case 6:
             currentNight = storyNight
