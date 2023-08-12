@@ -346,6 +346,7 @@ html,body
     position: absolute;
     top:70%;
     left:10%;  
+    display:none;
 }
 #menuStatic
 {

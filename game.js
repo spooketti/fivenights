@@ -3,13 +3,14 @@ let mainFiveCompleted = false
 if(!localStorage.currentNight)
 {
     localStorage.currentNight = 1
-    localStorage.mainFiveCompleted = false
+    localStorage.mainFiveCompleted = "false"
 }
 else
 {
     currentNight = parseInt(localStorage.currentNight)
     mainFiveCompleted = Boolean(localStorage.mainFiveCompleted)
 }
+
 
 let nightIntermission = document.getElementById("nightIntermission")
 let mainMenu = document.getElementById("mainMenu")
@@ -23,10 +24,16 @@ let sixamWinSound = new Audio("assets/sounds/chimes.wav")
 let jumpScream = new Audio("assets/sounds/jumpScream.wav")
 let staticSound = new Audio("assets/sounds/died.wav")
 let fanbuzz = new Audio("assets/sounds/fanbuzz.wav")
+let nightsixButton = document.getElementById("nightsix")
 let chosenNight = 6
 let storyNight = currentNight
 
-
+if(Boolean(localStorage.getItem("mainFiveCompleted"))==true)
+{
+    nightsixButton.style.display = "block"
+    console.log("b")
+}
+console.log(Boolean(localStorage.getItem("mainFiveCompleted")))
 function stopEveryone()
 {
     clearInterval(freddyInterval)
@@ -106,6 +113,7 @@ function newGame()
 
 const nightWon = async() =>
 {
+    
     poweroutmusic.loop = false
     clearInterval(freddyBlinking)
     stopEveryone()
@@ -147,6 +155,7 @@ const nightWon = async() =>
             localStorage.mainFiveCompleted = true
             mainFiveCompleted = true
             death()
+            nightsixButton.style.display = null
         break;
         case 6:
             currentNight = storyNight
