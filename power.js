@@ -44,4 +44,5 @@ const powerOut = async() =>
     rlB.style.display = "none"
     ldB.style.display = "none"
     rdB.style.display = "none"
+    freddyPowerOut()
 }

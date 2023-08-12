@@ -35,12 +35,14 @@ function stopEveryone()
     clearInterval(foxyInterval)
     clearInterval(timeClock)
     clearInterval(powerInterval)
+    clearInterval(freddyBlinking)
 }
 
 stopEveryone()
 
 const startNight = async() =>
 {
+    office.style.opacity = null
     nightStarted = true
     nightName.innerText = `Night ${storyNight}`
     nightMarker.innerText = `Night ${currentNight}`
@@ -65,8 +67,8 @@ const startNight = async() =>
     llB.style.display = null
     rlB.style.display = null
     await delay(1000)
-    currentNight = storyNight
-    localStorage.currentNight = currentNight
+    //currentNight = storyNight
+    //localStorage.currentNight = currentNight
     freddyInterval = window.setInterval(freddyMovement,5000)
     bonnieInterval = window.setInterval(bonnieMovement,4970)
     chicaInterval = window.setInterval(chicaMovement,4800)
@@ -104,6 +106,8 @@ function newGame()
 
 const nightWon = async() =>
 {
+    poweroutmusic.loop = false
+    clearInterval(freddyBlinking)
     stopEveryone()
     powerDSound.pause()
     fanbuzz.pause()
@@ -209,10 +213,10 @@ const death = async() =>
     mainMenu.style.display = "block"
 }
 
-function callDeath()
+/*function callDeath() //wtf is the point of this
 {
     death()
-}
+}*/
 
 function nightSix()
 {

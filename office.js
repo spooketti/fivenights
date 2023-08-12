@@ -25,7 +25,9 @@ let ldB = document.getElementById("leftDoorButton")
 let rdB = document.getElementById("rightDoorButton")
 let llB = document.getElementById("leftLightButton")
 let rlB = document.getElementById("rightLightButton")
-
+let freddyBlinking
+let shortPowerOut = new Audio("assets/sounds/powerout_short.mp3")
+let chosenSong
 clearInterval(moveInterval)
 
 window.onload = function()
@@ -219,7 +221,7 @@ function leftDoor()
         rightDoorPanel.style.display = "none"
         usage = 0
         jumpScream.play()
-        callDeath()
+        death()
     }
     if(leftDoorClosed)
     {
@@ -275,7 +277,45 @@ usage--
 
 powerUI.innerHTML = `Power left:${Math.round(power)}% <br> Usage:<img src="assets/power${usage}.png">`
 }
+let blink = false
+function freddySong()
+{
+   // console.log(blink)
+    blink=!blink
+    office.style.backgroundImage = `url(assets/powerout_${blink}.webp)`
+}
+function freddySongKillPhase()
+{
+    chosenSong.pause()
+    chosenSong.currentTime = 0
+    office.style.opacity="0%"
+    clearInterval(freddyBlinking)
+    setTimeout(powerOutDeath,Math.random()*(20000-5000)+5000)
+}
+function powerOutDeath()
+{
+    office.style.opacity = null
+    leftDoorModel.style.display = "none"
+    office.style.backgroundImage = "url(assets/jumpscares/freddyPOJPSC.webp)"
+    jumpScream.play()
+    death()
+}
+const freddyPowerOut = async() =>
+{
+    console.log("bro")
+    let blackOutSongs = [shortPowerOut,poweroutmusic]
+    await delay(Math.round(Math.random())*20000)
+    console.log("coc")
+    freddyBlinking = setInterval(freddySong,300)
+    chosenSong = blackOutSongs[Math.round(Math.random())]
+    chosenSong.currentTime = 0
+    chosenSong.loop = false
+    chosenSong.play()
+    setTimeout(freddySongKillPhase,Math.random()*(20000-5000)+5000)
 
+    
+    
+}
 
 /*
 document.addEventListener("keypress",function(e)

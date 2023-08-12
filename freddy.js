@@ -72,7 +72,7 @@ switch(freddyProgress)
     rightDoorModel.style.display = "none"
     office.style.backgroundImage = "url(assets/jumpscares/freddyJPSC.webp)"
     jumpScream.play()
-    callDeath()
+    death()
     break;
     default:
         //if(freddyProgress==3)

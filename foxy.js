@@ -65,13 +65,17 @@ const foxyAttack = async() =>
     }
     if(leftDoorClosed == false)
     {
+        if(cameraOpen)
+        {
+            activationAnimation()
+        }
         office.style.backgroundImage = "url(assets/jumpscares/foxyJPSC.webp)"
         leftDoorPanel.style.display = "none"
         leftDoorModel.style.display = "none"
         rightDoorPanel.style.display = "none"
         usage = 0
         jumpScream.play()
-        callDeath()
+        death()
     }
     else
     {

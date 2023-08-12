@@ -58,7 +58,7 @@ if(cameraOpen)
         cameraButton.style.zIndex = "-1"
         office.style.backgroundImage = "url(assets/jumpscares/bonnieJPSC.webp)"
         jumpScream.play()
-        callDeath()
+        death()
     }
     if(chicaProgress==7&&!blackOut)
     {
@@ -69,7 +69,7 @@ if(cameraOpen)
         cameraButton.style.zIndex = "-1"
         office.style.backgroundImage = "url(assets/jumpscares/chicaJPSC.webp)"
         jumpScream.play()
-        callDeath()
+        death()
     }
     
     stunFoxy()
