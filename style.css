@@ -528,3 +528,9 @@ pointer-events: none;
 background-size: cover;
 what
 */
+::selection {
+    background: transparent;
+}
+::-moz-selection {
+    background: transparent;
+}
