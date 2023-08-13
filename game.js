@@ -24,13 +24,17 @@ let sixamWinSound = new Audio("assets/sounds/chimes.wav")
 let jumpScream = new Audio("assets/sounds/jumpScream.wav")
 let staticSound = new Audio("assets/sounds/died.wav")
 let fanbuzz = new Audio("assets/sounds/fanbuzz.wav")
+let customNightUI = document.getElementById("customNight")
+let CNB = document.getElementById("customNightButton")
 let nightsixButton = document.getElementById("nightsix")
 let chosenNight = 6
 let storyNight = currentNight
-
+let ringing = new Audio("assets/sounds/phonecall/phone.mp3")
+let currentCall
 if(Boolean(localStorage.getItem("mainFiveCompleted"))==true)
 {
     nightsixButton.style.display = "block"
+    CNB.style.display = "block"
     console.log("b")
 }
 console.log(Boolean(localStorage.getItem("mainFiveCompleted")))
@@ -49,6 +53,7 @@ stopEveryone()
 
 const startNight = async() =>
 {
+    customNightUI.style.display = "none"
     gfredSound.pause()
     powerUI.style.zIndex = "4"
     office.style.opacity = null
@@ -102,10 +107,37 @@ const startNight = async() =>
         bonnieAI = aiNight[currentNight][1]
         chicaAI = aiNight[currentNight][2]
         foxyAI = aiNight[currentNight][3]
+        if(currentNight!=6)
+        {
+        ringing.play()
+        ringing.loop = true;
+        setTimeout(phoneCall,6000)
+        }
     }
    
 }
 
+const phoneCall = async() =>
+{
+    document.getElementById("muteCall").style.display = "block"
+    ringing.pause()
+    ringing.currentTime = 0
+ 
+        currentCall = new Audio(`assets/sounds/phonecall/night${currentNight}.mp3`)
+        currentCall.volume = 0.7
+        currentCall.play()
+    
+    await delay(1000)
+    setTimeout(hangup,(currentCall.duration*1000)-1000)
+}
+
+function hangup()
+{
+    console.log("wh")
+    currentCall.pause();
+    currentCall.currentTime = 0;
+    document.getElementById('muteCall').style.display='none';
+}
 function newGame()
 {
     currentNight = 1;
@@ -115,12 +147,13 @@ function newGame()
 
 const nightWon = async() =>
 {
-    
+    hangup()
     poweroutmusic.loop = false
     clearInterval(freddyBlinking)
     stopEveryone()
     powerDSound.pause()
     fanbuzz.pause()
+    kitchenSound.pause()
     powerDSound.currentTime = 0
     nightStarted = false
     office.style.backgroundImage = "url(assets/officelLightfalserLightfalseBfalseCfalse.webp)"
@@ -158,6 +191,7 @@ const nightWon = async() =>
             mainFiveCompleted = true
             death()
             nightsixButton.style.display = null
+            CNB.style.display = "block"
             SIXAM.style.display = "none"
         break;
         case 6:
@@ -200,6 +234,9 @@ function updateMainMenu()
 
 const death = async() =>
 {
+    hangup()
+    currentCall.pause()
+    currentCall.currentTime = 0;
     stopEveryone()
     fanbuzz.pause()
     currentNight = storyNight
@@ -236,4 +273,12 @@ function nightSix()
     storyNight = localStorage.currentNight
     currentNight = chosenNight
     startNight()
+}
+
+function openCustomNight()
+{
+    cameraSwap.pause()
+    cameraSwap.currentTime = 0
+    cameraSwap.play()
+    customNightUI.style.display = "block"
 }
