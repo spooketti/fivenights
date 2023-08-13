@@ -1,7 +1,7 @@
 let farLeft = 0;
-let farRight = -280;
+let farRight = -18;
 let office = document.getElementById("office")
-let currentTransform = -280
+let currentTransform = -18
 //office.style.transform = "0px"
 let doorSound = new Audio("assets/sounds/door.ogg")
 let lightSound = new Audio("assets/sounds/light.ogg")
@@ -33,7 +33,7 @@ clearInterval(moveInterval)
 window.onload = function()
 {
     clearInterval(moveInterval)
-    office.style.transform = "translate(-280px)"
+    office.style.transform = "translate(-18%)"
 }
 
 
@@ -87,15 +87,15 @@ else if(currentTransform <= farRight && direction == "right")
 }
 if(direction == "left" && cameraOpen == false)
 {
-    currentTransform+=5
+    currentTransform+=.3
 }
 else if(direction == "right" && cameraOpen == false)
 {
-    currentTransform-=5
+    currentTransform-=.3
 }
 
 //console.log(currentTransform)
-office.style.transform = `translate(${currentTransform}px)`
+office.style.transform = `translate(${currentTransform}%)`
 }
 
 function rightDoor()
@@ -352,7 +352,14 @@ switch(e.key)
 })
 reinstate this if the power usage dupe gets patched
 */
-
+document.addEventListener("keypress",function(e)
+{
+    if(e.key=="c")
+    {
+        office.style.transform = `url(${currentTransform-1})`
+        console.log(currentTransform)
+    }
+})
 /*
 document.addEventListener("keypress",function(e)
 {
