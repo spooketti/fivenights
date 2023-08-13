@@ -30,7 +30,7 @@ let nightsixButton = document.getElementById("nightsix")
 let chosenNight = 6
 let storyNight = currentNight
 let ringing = new Audio("assets/sounds/phonecall/phone.mp3")
-let currentCall
+let currentCall = new Audio(`assets/sounds/phonecall/20202020.mp3`)
 if(Boolean(localStorage.getItem("mainFiveCompleted"))==true)
 {
     nightsixButton.style.display = "block"
@@ -167,11 +167,7 @@ function newGame()
 
 const nightWon = async() =>
 {
-    if(currentNight > 7)
-    {
-        canGoldenKill = true
-        goldenFreddy()
-    }
+    
     hangup()
     poweroutmusic.loop = false
     clearInterval(freddyBlinking)
@@ -220,16 +216,29 @@ const nightWon = async() =>
             SIXAM.style.display = "none"
         break;
         case 6:
-            currentNight = storyNight
-            storyNight = currentNight
+            storyNight = 5
+            localStorage.mainFiveCompleted = true
+            mainFiveCompleted = true
             death()
+            nightsixButton.style.display = null
+            CNB.style.display = "block"
+            SIXAM.style.display = "none"
         break;
         case 7:
-            currentNight = storyNight
-            storyNight = currentNight
+            storyNight = 5
+            localStorage.mainFiveCompleted = true
+            mainFiveCompleted = true
             death()
+            nightsixButton.style.display = null
+            CNB.style.display = "block"
+            SIXAM.style.display = "none"
         break;
         default:
+            if(currentNight > 7)
+    {
+        canGoldenKill = true
+        goldenFreddy()
+    }
         currentNight++
         storyNight = currentNight
         startNight()
