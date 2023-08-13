@@ -36,6 +36,8 @@ window.onload = function()
     office.style.transform = "translate(-280px)"
 }
 
+
+
 function logId(id)
 {
 clearInterval(moveInterval)

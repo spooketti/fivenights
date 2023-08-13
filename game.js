@@ -199,7 +199,7 @@ const nightWon = async() =>
         rightDoor()
     }
     currentCamera = "ONEA"
-    await delay(8000)
+    await delay(10000)
     //power = 100
     SIXAM.src = ""
     sixamWinSound.style.display = "none"
@@ -235,10 +235,10 @@ const nightWon = async() =>
         break;
         default:
             if(currentNight > 7)
-    {
-        canGoldenKill = true
-        goldenFreddy()
-    }
+            {
+            canGoldenKill = true
+            goldenFreddy()
+            }       
         currentNight++
         storyNight = currentNight
         startNight()
