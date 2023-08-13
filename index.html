@@ -126,7 +126,39 @@
 <img id="gFredKill" src="assets/jumpscares/gfredJPSC.webp">
 
 <div id="customNight">
+  <span style="left:15.5%" id="CNfreddy">20</span>
+  <span style="left:37.5%" id="CNbonnie">20</span>
+  <span id="CNchica" style="left:60.5%">20</span>
+  <span id="CNfoxy" style="left:81.75%">20</span>
+
 <img src="assets/Custom_Night.webp">
+<button class="customNightChange" style="
+    top: 60%;
+    left: 9%;
+" onclick="updateCNUI('freddy',-1)"></button>
+<button onclick="updateCNUI('bonnie',-1)" class="customNightChange" style="
+    top: 60%;
+    left: 31%;
+"></button><button onclick="updateCNUI('bonnie',1)" class="customNightChange" style="
+    top: 60%;
+    left: 44%;
+"></button><button onclick="updateCNUI('chica',-1)" class="customNightChange" style="
+    top: 60%;
+    left: 53.5%;
+"></button><button onclick="updateCNUI('chica',1)" class="customNightChange" style="
+    top: 60%;
+    left: 66.5%;
+"></button><button onclick="updateCNUI('foxy',-1)" class="customNightChange" style="
+    top: 60%;
+    left: 75.5%;
+"></button><button onclick="updateCNUI('foxy',1)" class="customNightChange" style="
+    top: 60%;
+    left: 88%;
+"></button><button onclick="updateCNUI('freddy',1)" class="customNightChange" style="
+    top: 60%;
+    left: 22%;
+"></button>
+<button id="nightseven" onclick="nightSeven()">BEGIN</button>
 </div>
 
 <button id="muteCall" onclick="hangup()">Mute Call</button>
@@ -141,5 +173,6 @@
   <script src="bonnie.js"></script>
   <script src="chica.js"></script>
   <script src="game.js"></script>
+  <script src="customNight.js"></script>
   </body>
 </html>

@@ -107,18 +107,38 @@ const startNight = async() =>
         bonnieAI = aiNight[currentNight][1]
         chicaAI = aiNight[currentNight][2]
         foxyAI = aiNight[currentNight][3]
-        if(currentNight!=6)
+    }
+    if(currentNight!=6)
         {
         ringing.play()
         ringing.loop = true;
         setTimeout(phoneCall,6000)
         }
-    }
+    
    
 }
 
 const phoneCall = async() =>
 {
+    if(currentNight==7)
+    {
+        if(freddyAI+bonnieAI+chicaAI+foxyAI==80)
+        {
+            document.getElementById("muteCall").style.display = "block"
+            ringing.pause()
+            ringing.currentTime = 0
+         
+                currentCall = new Audio(`assets/sounds/phonecall/20202020.mp3`)
+                currentCall.volume = 0.7
+                currentCall.play()
+                await delay(1000)
+    setTimeout(hangup,(currentCall.duration*1000)-1000)
+        }
+        ringing.pause()
+        ringing.currentTime = 0
+        return;
+        
+    }
     document.getElementById("muteCall").style.display = "block"
     ringing.pause()
     ringing.currentTime = 0
@@ -133,7 +153,7 @@ const phoneCall = async() =>
 
 function hangup()
 {
-    console.log("wh")
+    //console.log("wh")
     currentCall.pause();
     currentCall.currentTime = 0;
     document.getElementById('muteCall').style.display='none';

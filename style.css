@@ -489,6 +489,41 @@ pointer-events: none;
     border: 2px double #cbd5cb;
     display: none;
 }
+
+.customNightChange
+{
+    height:7%;
+    width:2.6%;
+    background-color: white;
+    z-index: 2;
+    position:absolute;
+    opacity: 0;
+}
+
+#customNight span
+{
+    position: absolute;
+    z-index: 2;
+    color:white;
+    top:61%;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: xx-large;
+}
+
+#nightseven
+{
+    z-index: 4;
+    height:8%;
+    width:15%;
+    bottom:5%;
+    right:5%;
+    position: absolute;
+    font-size:xx-large;
+    background-color: grey;
+    color:white;
+    font-family: 'Courier New', Courier, monospace;
+    border: 2px double #cbd5cb;
+}
 /*
 background-size: cover;
 what
