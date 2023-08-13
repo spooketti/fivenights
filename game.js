@@ -167,6 +167,11 @@ function newGame()
 
 const nightWon = async() =>
 {
+    if(currentNight > 7)
+    {
+        canGoldenKill = true
+        goldenFreddy()
+    }
     hangup()
     poweroutmusic.loop = false
     clearInterval(freddyBlinking)
@@ -215,6 +220,11 @@ const nightWon = async() =>
             SIXAM.style.display = "none"
         break;
         case 6:
+            currentNight = storyNight
+            storyNight = currentNight
+            death()
+        break;
+        case 7:
             currentNight = storyNight
             storyNight = currentNight
             death()
