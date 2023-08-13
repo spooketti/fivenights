@@ -15,6 +15,11 @@ if(chicaAI<chance)
 {
     return;
 }
+if(FCCamDict[currentCamera]==chicaProgress&&cameraOpen)
+ {
+    scramble.play()
+    changeCamera(currentCamera)
+ }
 switch(chicaProgress)
 {
     case 2:
@@ -44,5 +49,10 @@ switch(chicaProgress)
         chicaProgress++
     break;
 }
+if(FCCamDict[currentCamera]==chicaProgress&&cameraOpen)
+ {
+    scramble.play()
+    changeCamera(currentCamera)
+ }
 }
 

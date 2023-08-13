@@ -11,7 +11,19 @@ let runningSound = new Audio("assets/sounds/Run.ogg")
 let shortBang = new Audio("assets/sounds/foxy_knock_long_false.wav")
 let longBang = new Audio("assets/sounds/foxy_knock_long_true.ogg")
 let bangArray = [shortBang,longBang,3000,7000]
+
 */
+
+let FCCamDict = 
+{
+    "ONEA":0,
+    "ONEB":1,
+    "SEVEN":2,
+    "SIX":3,
+    "FOURA":4,
+    "FOURB":5
+}
+
 function freddyMovement()
 {
 let chance = Math.floor(Math.random() * 20 + 1)
@@ -19,6 +31,11 @@ if(freddyAI<chance)
 {
     return;
 }
+if(FCCamDict[currentCamera]==freddyProgress&&cameraOpen)
+ {
+    scramble.play()
+    changeCamera(currentCamera)
+ }
 //console.log(chance)
 switch(freddyProgress)
 {
@@ -90,5 +107,10 @@ switch(freddyProgress)
         }
     break;
 }
+if(FCCamDict[currentCamera]==freddyProgress&&cameraOpen)
+ {
+    scramble.play()
+    changeCamera(currentCamera)
+ }
 }
 

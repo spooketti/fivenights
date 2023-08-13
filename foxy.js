@@ -14,16 +14,17 @@ function foxyMovement()
 {
 let chance = Math.floor(Math.random() * 20 + 1)
 
-if(foxyAI >= chance && cameraOpen == false && stunned == false && foxyProgress != 3)
+if(foxyAI >= chance && cameraOpen == false && stunned == false && foxyProgress < 3)
 {
+    
 foxyProgress++
 //console.log("moved")
 if(foxyProgress==3)
 {
 foxySprint()
 }
-}
 
+}
 
 
 }
@@ -88,5 +89,10 @@ const foxyAttack = async() =>
         foxyIsAtDoor = false
         foxyProgress = 0
         isRunning = false
+        if(currentCamera=="ONEC"&&cameraOpen)
+    {
+       scramble.play()
+       changeCamera(currentCamera)
+    }
     }
 }

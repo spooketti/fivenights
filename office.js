@@ -306,6 +306,7 @@ function powerOutDeath()
     }
     office.style.opacity = null
     leftDoorModel.style.display = "none"
+    rightDoorModel.style.display = "none"
     office.style.backgroundImage = "url(assets/jumpscares/freddyPOJPSC.webp)"
     jumpScream.play()
     death()
@@ -365,7 +366,7 @@ document.addEventListener("keypress",function(e)
 {
 if(e.key=="a")
 {
-powerOut()
+powerOut()ligh
 }
 if(e.key=="d")
 {

@@ -11,11 +11,27 @@ show stage + dining + backstage + left hall + closet left corner doorway office
 */
 function bonnieMovement()
 {
+let bonnieCamDict = 
+{
+    "ONEA":0,
+    "ONEB":1,
+    "FIVE":2,
+    "TWOA":3,
+    "CAM3":4,
+    "TWOB":5
+}
 let chance = Math.round(Math.random() * 20 + 1)
 if(bonnieAI<chance)
 {
     return;
 }
+
+ if(bonnieCamDict[currentCamera]==bonnieProgress&&cameraOpen)
+ {
+    scramble.play()
+    changeCamera(currentCamera)
+ }
+   
 //console.log(chance)
 switch(bonnieProgress)
 {
@@ -41,6 +57,11 @@ switch(bonnieProgress)
         }
     break;
 }
+
+if(bonnieCamDict[currentCamera]==bonnieProgress&&cameraOpen)
+ {
+    changeCamera(currentCamera)
+ }
 
 
 //console.log(bonnieProgress)

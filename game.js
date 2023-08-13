@@ -31,6 +31,8 @@ let chosenNight = 6
 let storyNight = currentNight
 let ringing = new Audio("assets/sounds/phonecall/phone.mp3")
 let currentCall = new Audio(`assets/sounds/phonecall/20202020.mp3`)
+let callTimer
+//let cameraJam = false
 if(Boolean(localStorage.getItem("mainFiveCompleted"))==true)
 {
     nightsixButton.style.display = "block"
@@ -53,6 +55,15 @@ stopEveryone()
 
 const startNight = async() =>
 {
+    document.getElementById(currentCamera).style.animation = null
+    if(currentNight > 7)
+            {
+            canGoldenKill = true
+            goldenFreddy()
+            localStorage.currentNight = 1
+            }     
+    poweroutmusic.pause()
+    poweroutmusic.currentTime = 0;
     customNightUI.style.display = "none"
     gfredSound.pause()
     powerUI.style.zIndex = "4"
@@ -132,7 +143,7 @@ const phoneCall = async() =>
                 currentCall.volume = 0.7
                 currentCall.play()
                 await delay(1000)
-    setTimeout(hangup,(currentCall.duration*1000)-1000)
+    callTimer = setTimeout(hangup,(currentCall.duration*1000)-1000)
         }
         ringing.pause()
         ringing.currentTime = 0
@@ -148,7 +159,7 @@ const phoneCall = async() =>
         currentCall.play()
     
     await delay(1000)
-    setTimeout(hangup,(currentCall.duration*1000)-1000)
+    callTimer = setTimeout(hangup,(currentCall.duration*1000)-1000)
 }
 
 function hangup()
@@ -167,7 +178,15 @@ function newGame()
 
 const nightWon = async() =>
 {
-    
+    clearTimeout(callTimer)
+    document.getElementById(currentCamera).style.animation = null
+    lightSound.pause()
+    poweroutmusic.pause()
+    poweroutmusic.currentTime = 0;
+    leftLightOn = false
+    rightLightOn = false
+    leftDoorPanel.src = `assets/door_panel/lDoor${false}lLight${leftLightOn}.webp`
+    rightDoorPanel.src = `assets/door_panel/rDoor${false}rLight${rightLightOn}.webp`
     hangup()
     poweroutmusic.loop = false
     clearInterval(freddyBlinking)
@@ -177,7 +196,12 @@ const nightWon = async() =>
     kitchenSound.pause()
     powerDSound.currentTime = 0
     nightStarted = false
+    if(cameraOpen)
+    {
+        activationAnimation()
+    }
     office.style.backgroundImage = "url(assets/officelLightfalserLightfalseBfalseCfalse.webp)"
+   // left
     cameraButton.style.zIndex = "4"
     blackOut = false
     powerUI.style.zIndex = "4"
@@ -198,11 +222,11 @@ const nightWon = async() =>
     {
         rightDoor()
     }
+    usage = 0
     currentCamera = "ONEA"
     await delay(10000)
     //power = 100
-    SIXAM.src = ""
-    sixamWinSound.style.display = "none"
+    //sixamWinSound.style.display = "none"
     switch(currentNight)
     {
         case 5:
@@ -211,34 +235,30 @@ const nightWon = async() =>
             localStorage.mainFiveCompleted = true
             mainFiveCompleted = true
             death()
-            nightsixButton.style.display = null
+            nightsixButton.style.display = "block"
             CNB.style.display = "block"
-            SIXAM.style.display = "none"
+          //  SIXAM.style.display = "none"
         break;
         case 6:
             storyNight = 5
             localStorage.mainFiveCompleted = true
             mainFiveCompleted = true
             death()
-            nightsixButton.style.display = null
+            nightsixButton.style.display = "block"
             CNB.style.display = "block"
-            SIXAM.style.display = "none"
+          //  SIXAM.style.display = "none"
         break;
         case 7:
             storyNight = 5
             localStorage.mainFiveCompleted = true
             mainFiveCompleted = true
             death()
-            nightsixButton.style.display = null
+            nightsixButton.style.display = "block"
             CNB.style.display = "block"
-            SIXAM.style.display = "none"
+         //   SIXAM.style.display = "none"
         break;
         default:
-            if(currentNight > 7)
-            {
-            canGoldenKill = true
-            goldenFreddy()
-            }       
+            SIXAM.src = ""  
         currentNight++
         storyNight = currentNight
         startNight()
@@ -273,6 +293,7 @@ function updateMainMenu()
 
 const death = async() =>
 {
+    clearTimeout(callTimer)
     hangup()
     currentCall.pause()
     currentCall.currentTime = 0;
@@ -281,9 +302,12 @@ const death = async() =>
     currentNight = storyNight
     storyNight = currentNight
     await delay(1000)
+    SIXAM.src = ""
+    SIXAM.style.display = "none"
     jumpScream.pause()
     kitchenSound.pause()
     poweroutmusic.pause()
+    poweroutmusic.currentTime = 0;
     jumpScream.currentTime = 0
     menuStatic.style.opacity = "100%"
     menuStatic.style.display = "block"

@@ -17,6 +17,9 @@ let gFreddy = document.getElementById("gFreddy")
 let isAnimating = false
 let cameraOpen = false
 let canGoldenKill = false
+let scramble = new Audio("assets/sounds/scramble.ogg")
+scramble.volume = 0.3
+
 let gFredKill = document.getElementById("gFredKill")
 
 const delay = ms => new Promise(res => setTimeout(res, ms));
@@ -79,7 +82,7 @@ if(cameraOpen)
         jumpScream.play()
         death()
     }
-    if(Math.round(Math.random()*100)==5&&!blackOut)
+    if(Math.round(Math.random()*100)==5&&!blackOut&&nightStarted)
     {
         canGoldenKill = true
         gFreddy.style.display = "block"
@@ -99,6 +102,8 @@ if(cameraOpen)
     runningSound.volume = 0.3
 }
 
+
+
 const playTransition = async() =>
 {
     static.src = "assets/cameraTransition.gif"
@@ -108,6 +113,24 @@ const playTransition = async() =>
     static.style.opacity = "20%"
     document.getElementById(currentCamera).style.animation = "fadeInFromNone 2s ease infinite"
     stageHolder.style.display = "none"
+    silentSwitch()
+}
+
+function changeCamera(camera)
+{
+    document.getElementById(currentCamera).style.animation = null
+    currentCamera = camera
+    cameraSwap.pause()
+    cameraSwap.currentTime = 0
+    cameraSwap.play()
+    playTransition()
+   
+    
+
+}
+
+function silentSwitch()
+{
     switch(currentCamera)
     {
         case "ONEA":
@@ -212,19 +235,6 @@ const playTransition = async() =>
         break;
         
     }
-}
-
-function changeCamera(camera)
-{
-    document.getElementById(currentCamera).style.animation = null
-    currentCamera = camera
-    cameraSwap.pause()
-    cameraSwap.currentTime = 0
-    cameraSwap.play()
-    playTransition()
-   
-    
-
 }
 
 let cameraIterable = document.querySelectorAll(".cameraButton")
