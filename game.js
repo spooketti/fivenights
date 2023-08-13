@@ -35,9 +35,9 @@ if(Boolean(localStorage.getItem("mainFiveCompleted"))==true)
 {
     nightsixButton.style.display = "block"
     CNB.style.display = "block"
-    console.log("b")
+  //  console.log("b")
 }
-console.log(Boolean(localStorage.getItem("mainFiveCompleted")))
+//console.log(Boolean(localStorage.getItem("mainFiveCompleted")))
 function stopEveryone()
 {
     clearInterval(freddyInterval)
