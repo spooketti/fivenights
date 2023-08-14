@@ -89,6 +89,9 @@ html,body
     position: absolute;
     top:35%;
     z-index: 2;
+    left:0%;
+    width:5%;
+    height:28%;
 }
 
 #rightDoorPanel
@@ -96,13 +99,15 @@ html,body
     position: absolute;
     top:35%;
     z-index: 2;
-    right:2%;
+    right:.5%;
+    width:5%;
+    height:28%;
 }
 
 .doorButton
 {
-    height: 60px;
-    width: 60px;
+    height: 5.5%;
+    width: 2.5%;
     position: absolute;
     z-index: 3;
     background-color: transparent;
@@ -112,13 +117,13 @@ html,body
 #rightDoorButton
 {
     top: 41%;
-    right: 4%; 
+    right: 2%; 
 }
 
 #rightLightButton
 {
-    top: 51%;
-    right: 4%; 
+    top: 50.5%;
+    right: 2%; 
 }
 
 #leftDoorButton
@@ -130,7 +135,7 @@ html,body
 
 #leftLightButton
 {
-    top:51%;
+    top:50%;
     left:2%;
 
 }

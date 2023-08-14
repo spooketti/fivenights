@@ -2,6 +2,7 @@ let farLeft = 0;
 let farRight = -18;
 let office = document.getElementById("office")
 let currentTransform = -18
+
 //office.style.transform = "0px"
 let doorSound = new Audio("assets/sounds/door.ogg")
 let lightSound = new Audio("assets/sounds/light.ogg")

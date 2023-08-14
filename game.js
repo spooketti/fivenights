@@ -345,3 +345,5 @@ function openCustomNight()
     cameraSwap.play()
     customNightUI.style.display = "block"
 }
+
+screen.orientation.lock('landscape');
