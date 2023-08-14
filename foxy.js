@@ -32,7 +32,7 @@ foxySprint()
 const stunFoxy = async () =>
 {
     stunned = true
-    await delay(Math.floor(Math.random() * 10000))
+    await delay(Math.floor(Math.random() * (10000-1000)+2000))
     stunned = false
 }
 
