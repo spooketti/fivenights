@@ -76,6 +76,9 @@ const foxyAttack = async() =>
         rightDoorPanel.style.display = "none"
         usage = 0
         jumpScream.play()
+        foxyProgress = 0
+        isRunning = false
+        foxyIsAtDoor = false
         death()
     }
     else
