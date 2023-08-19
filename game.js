@@ -194,6 +194,8 @@ const nightWon = async() =>
     powerDSound.pause()
     fanbuzz.pause()
     kitchenSound.pause()
+    shortBang.pause()
+    longBang.pause()
     powerDSound.currentTime = 0
     nightStarted = false
     if(cameraOpen)
@@ -299,6 +301,8 @@ const death = async() =>
     currentCall.currentTime = 0;
     stopEveryone()
     fanbuzz.pause()
+    shortBang.pause()
+    longBang.pause()
     currentNight = storyNight
     storyNight = currentNight
     await delay(1000)

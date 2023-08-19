@@ -86,6 +86,7 @@ const foxyAttack = async() =>
         power-=foxyPowerPenalty
         foxyIsAtDoor = true
         let choice = Math.floor(Math.random() * 2)
+        bangArray[choice].currentTime = 0
         bangArray[choice].play()
         await delay(bangArray[choice+2])
       //  console.log("left")
