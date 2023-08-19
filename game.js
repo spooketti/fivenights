@@ -1,15 +1,6 @@
 let currentNight = 1
 let mainFiveCompleted = false
-if(!localStorage.currentNight)
-{
-    localStorage.currentNight = 1
-    localStorage.mainFiveCompleted = "false"
-}
-else
-{
-    currentNight = parseInt(localStorage.currentNight)
-    mainFiveCompleted = Boolean(localStorage.mainFiveCompleted)
-}
+
 
 
 let nightIntermission = document.getElementById("nightIntermission")
@@ -32,13 +23,18 @@ let storyNight = currentNight
 let ringing = new Audio("assets/sounds/phonecall/phone.mp3")
 let currentCall = new Audio(`assets/sounds/phonecall/20202020.mp3`)
 let callTimer
-//let cameraJam = false
-if(Boolean(localStorage.getItem("mainFiveCompleted"))==true)
+if(localStorage.storyNight)
 {
+   currentNight = localStorage.storyNight
+}
+if(localStorage.mainFiveCompleted == "true")
+{
+    mainFiveCompleted = true
     nightsixButton.style.display = "block"
     CNB.style.display = "block"
-  //  console.log("b")
 }
+//let cameraJam = false
+
 //console.log(Boolean(localStorage.getItem("mainFiveCompleted")))
 function stopEveryone()
 {
@@ -234,6 +230,7 @@ const nightWon = async() =>
         case 5:
             //alert("won!!!")
             storyNight = 5
+            localStorage.storyNight = 5
             localStorage.mainFiveCompleted = true
             mainFiveCompleted = true
             death()
@@ -243,6 +240,7 @@ const nightWon = async() =>
         break;
         case 6:
             storyNight = 5
+            localStorage.storyNight = 5
             localStorage.mainFiveCompleted = true
             mainFiveCompleted = true
             death()
@@ -252,6 +250,7 @@ const nightWon = async() =>
         break;
         case 7:
             storyNight = 5
+            localStorage.storyNight = 5
             localStorage.mainFiveCompleted = true
             mainFiveCompleted = true
             death()
@@ -263,6 +262,7 @@ const nightWon = async() =>
             SIXAM.src = ""  
         currentNight++
         storyNight = currentNight
+        localStorage.storyNight = storyNight
         startNight()
         sixamWinSound.pause()
         SIXAM.style.display = "none"
@@ -290,7 +290,7 @@ function updateMainMenu()
     {
         nightName.innerText = "Night 5"
     }
-    nightName.innerText = "Night " + currentNight
+    nightName.innerText = "Night " + localStorage.storyNight
 }
 
 const death = async() =>
@@ -304,7 +304,7 @@ const death = async() =>
     shortBang.pause()
     longBang.pause()
     currentNight = storyNight
-    storyNight = currentNight
+    //storyNight = currentNight
     await delay(1000)
     SIXAM.src = ""
     SIXAM.style.display = "none"
@@ -327,6 +327,7 @@ const death = async() =>
     localStorage.currentNight = currentNight
     isGaming = false
     mainMenu.style.display = "block"
+    nightName.innerText = `Night ${storyNight}`
 }
 
 /*function callDeath() //wtf is the point of this
@@ -337,7 +338,7 @@ const death = async() =>
 function nightSix()
 {
     chosenNight = 6
-    storyNight = localStorage.currentNight
+    storyNight = localStorage.storyNight
     currentNight = chosenNight
     startNight()
 }
