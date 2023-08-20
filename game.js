@@ -290,7 +290,12 @@ function updateMainMenu()
     {
         nightName.innerText = "Night 5"
     }
-    nightName.innerText = "Night " + localStorage.storyNight
+    nightName.innerText = "Night 1"
+    if(localStorage.storyNight)
+    {
+        nightName.innerText = "Night " + localStorage.storyNight
+    }
+    
 }
 
 const death = async() =>
