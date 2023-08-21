@@ -59,7 +59,7 @@ const foxyAttack = async() =>
     foxyPowerPenalty+=5
    // console.log(foxyPowerPenalty)
     await delay(2000)
-    if(blackOut)
+    if(blackOut || !isGaming)
     {
         foxyProgress = 0
         return;
