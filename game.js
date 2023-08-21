@@ -56,8 +56,14 @@ const startNight = async() =>
             {
             canGoldenKill = true
             goldenFreddy()
-            localStorage.currentNight = 1
+            localStorage.storyNight = 1
             }     
+    leftDoorModel.src = "assets/lDoorfalse.gif"
+    rightDoorModel.src = "assets/rDoorfalse.gif"
+    leftDoorPanel.src  = "assets/door_panel/lDoorfalselLightfalse.webp"
+    rightDoorPanel.src  = "assets/door_panel/rDoorfalselrightfalse.webp"
+    usage = 0
+
     poweroutmusic.pause()
     poweroutmusic.currentTime = 0;
     customNightUI.style.display = "none"
