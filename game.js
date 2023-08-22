@@ -61,7 +61,7 @@ const startNight = async() =>
     leftDoorModel.src = "assets/lDoorfalse.gif"
     rightDoorModel.src = "assets/rDoorfalse.gif"
     leftDoorPanel.src  = "assets/door_panel/lDoorfalselLightfalse.webp"
-    rightDoorPanel.src  = "assets/door_panel/rDoorfalselrightfalse.webp"
+    rightDoorPanel.src  = "assets/door_panel/rDoorfalserLightfalse.webp"
     usage = 0
 
     poweroutmusic.pause()
