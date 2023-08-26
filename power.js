@@ -25,6 +25,8 @@ const powerOut = async() =>
     powerDSound.play()
     poweroutmusic.volume = 1
     //console.log("roku")
+    shortBang.pause()
+    longBang.pause()
     office.style.backgroundImage = "url(assets/powerout_false.webp)"
     fan.style.display = "none"
     leftDoorPanel.style.display = "none"
