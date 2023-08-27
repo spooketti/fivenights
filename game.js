@@ -306,6 +306,7 @@ function updateMainMenu()
 
 const death = async() =>
 {
+    lightSound.pause()
     clearTimeout(callTimer)
     hangup()
     currentCall.pause()
