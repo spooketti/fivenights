@@ -31,6 +31,11 @@ foxySprint()
 
 const stunFoxy = async () =>
 {
+    if(stunned)
+    {
+        return;
+        //extremely experimental, unsure of what this may do to the game balancing so revert this change if needed
+    }
     stunned = true
     await delay(Math.floor(Math.random() * (10000-1000)+2000))
     stunned = false
