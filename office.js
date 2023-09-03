@@ -289,7 +289,7 @@ function freddySong()
 }
 function freddySongKillPhase()
 {
-    if(nightStarted==false)
+    if(nightStarted==false || !blackOut)
     {
         return;
     }
@@ -301,7 +301,7 @@ function freddySongKillPhase()
 }
 function powerOutDeath()
 {
-    if(nightStarted==false)
+    if(!blackOut)
     {
         return;
     }
@@ -314,10 +314,14 @@ function powerOutDeath()
 }
 const freddyPowerOut = async() =>
 {
-    console.log("bro")
+    //console.log("bro")
     let blackOutSongs = [shortPowerOut,poweroutmusic]
-    await delay(Math.round(Math.random())*20000)
-    console.log("coc")
+    await delay(Math.random()*(20000-5000)+5000)
+    if(!blackOut)
+    {
+        return;
+    }
+   // console.log("coc")
     freddyBlinking = setInterval(freddySong,300)
     chosenSong = blackOutSongs[Math.round(Math.random())]
     chosenSong.currentTime = 0

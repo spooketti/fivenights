@@ -19,6 +19,7 @@ function powerDrain() {
 
 const powerOut = async() =>
 {
+    
     cameraButton.style.zIndex = "-1"
     powerUI.style.zIndex = "-1"
     //powerDSound.pause()

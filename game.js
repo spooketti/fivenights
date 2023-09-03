@@ -1,8 +1,6 @@
 let currentNight = 1
 let mainFiveCompleted = false
-
-
-
+let isPowerOut = false
 let nightIntermission = document.getElementById("nightIntermission")
 let mainMenu = document.getElementById("mainMenu")
 let menuStatic = document.getElementById("menuStatic")
@@ -51,6 +49,8 @@ stopEveryone()
 
 const startNight = async() =>
 {
+    blackOut = false
+    clearInterval(freddyBlinking)
     document.getElementById(currentCamera).style.animation = null
     if(currentNight > 7)
             {
@@ -180,6 +180,8 @@ function newGame()
 
 const nightWon = async() =>
 {
+    isPowerOut = false
+    clearInterval(freddyBlinking)
     clearTimeout(callTimer)
     document.getElementById(currentCamera).style.animation = null
     lightSound.pause()
@@ -306,6 +308,8 @@ function updateMainMenu()
 
 const death = async() =>
 {
+    blackOut = false
+    clearInterval(freddyBlinking)
     lightSound.pause()
     clearTimeout(callTimer)
     hangup()
