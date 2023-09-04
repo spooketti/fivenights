@@ -187,6 +187,8 @@ const nightWon = async() =>
     lightSound.pause()
     poweroutmusic.pause()
     poweroutmusic.currentTime = 0;
+    shortPowerOut.pause()
+    shortPowerOut.currentTime = 0;
     leftLightOn = false
     rightLightOn = false
     leftDoorPanel.src = `assets/door_panel/lDoor${false}lLight${leftLightOn}.webp`
@@ -233,10 +235,10 @@ const nightWon = async() =>
     await delay(10000)
     //power = 100
     //sixamWinSound.style.display = "none"
-    switch(currentNight)
+    switch(parseInt(currentNight))
     {
         case 5:
-            //alert("won!!!")
+           // alert("won!!!")
             storyNight = 5
             localStorage.storyNight = 5
             localStorage.mainFiveCompleted = true
@@ -267,6 +269,7 @@ const nightWon = async() =>
          //   SIXAM.style.display = "none"
         break;
         default:
+       // alert(currentNight)
             SIXAM.src = ""  
         currentNight++
         storyNight = currentNight
