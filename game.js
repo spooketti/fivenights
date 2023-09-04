@@ -31,6 +31,10 @@ if(localStorage.mainFiveCompleted == "true")
     nightsixButton.style.display = "block"
     CNB.style.display = "block"
 }
+if(localStorage.storyNight > 6)
+{
+    localStorage.storyNight = 5
+}
 //let cameraJam = false
 
 //console.log(Boolean(localStorage.getItem("mainFiveCompleted")))
