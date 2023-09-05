@@ -21,10 +21,7 @@ let storyNight = currentNight
 let ringing = new Audio("assets/sounds/phonecall/phone.mp3")
 let currentCall = new Audio(`assets/sounds/phonecall/20202020.mp3`)
 let callTimer
-if(localStorage.storyNight)
-{
-   currentNight = localStorage.storyNight
-}
+
 if(localStorage.mainFiveCompleted == "true")
 {
     mainFiveCompleted = true
@@ -34,6 +31,11 @@ if(localStorage.mainFiveCompleted == "true")
 if(localStorage.storyNight > 6)
 {
     localStorage.storyNight = 5
+}
+if(localStorage.storyNight)
+{
+    currentNight = localStorage.storyNight
+    nightName.innerText = "Night " + localStorage.storyNight
 }
 //let cameraJam = false
 
@@ -75,7 +77,7 @@ const startNight = async() =>
     powerUI.style.zIndex = "4"
     office.style.opacity = null
     nightStarted = true
-    nightName.innerText = `Night ${storyNight}`
+    nightName.innerText = `Night ${localStorage.storyNight}`
     nightMarker.innerText = `Night ${currentNight}`
     jammed = false
     hour = 0
@@ -301,15 +303,7 @@ let aiNight =
 window.addEventListener("load", updateMainMenu);
 function updateMainMenu()
 {
-    if(currentNight==6)
-    {
-        nightName.innerText = "Night 5"
-    }
     nightName.innerText = "Night 1"
-    if(localStorage.storyNight)
-    {
-        nightName.innerText = "Night " + localStorage.storyNight
-    }
     
 }
 
