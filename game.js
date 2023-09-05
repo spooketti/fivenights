@@ -28,7 +28,7 @@ if(localStorage.mainFiveCompleted == "true")
     nightsixButton.style.display = "block"
     CNB.style.display = "block"
 }
-if(localStorage.storyNight > 6)
+if(parseInt(localStorage.storyNight) > 6)
 {
     localStorage.storyNight = 5
 }
@@ -180,6 +180,7 @@ function hangup()
 function newGame()
 {
     currentNight = 1;
+    localStorage.storyNight = 1;
     storyNight = 1;
     startNight()
 }
@@ -300,13 +301,14 @@ let aiNight =
     [4,10,12,16]
 ]
 
+/*
 window.addEventListener("load", updateMainMenu);
 function updateMainMenu()
 {
     nightName.innerText = "Night 1"
     
 }
-
+*/
 const death = async() =>
 {
     blackOut = false
