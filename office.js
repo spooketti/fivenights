@@ -333,7 +333,7 @@ const freddyPowerOut = async() =>
     
 }
 
-/*
+
 document.addEventListener("keypress",function(e)
 {
 switch(e.key)
@@ -355,9 +355,8 @@ switch(e.key)
     break;
 
 }
-})
-reinstate this if the power usage dupe gets patched
-*/
+})///reinstate this if the power usage dupe gets patched
+/*
 document.addEventListener("keypress",function(e)
 {
     if(e.key=="c")
