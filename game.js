@@ -343,10 +343,10 @@ const death = async() =>
     menuStatic.style.opacity = "20%"
     jammed = false
     hour = 0
-    localStorage.storyNight = storyNight
+    localStorage.storyNight = currentNight
     isGaming = false
     mainMenu.style.display = "block"
-    nightName.innerText = `Night ${storyNight}`
+    nightName.innerText = `Night ${localStorage.storyNight}`
 }
 
 /*function callDeath() //wtf is the point of this
