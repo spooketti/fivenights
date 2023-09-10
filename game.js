@@ -343,7 +343,7 @@ const death = async() =>
     menuStatic.style.opacity = "20%"
     jammed = false
     hour = 0
-    localStorage.storyNight = currentNight
+    localStorage.storyNight = storyNight
     isGaming = false
     mainMenu.style.display = "block"
     nightName.innerText = `Night ${localStorage.storyNight}`
