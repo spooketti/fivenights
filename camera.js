@@ -18,9 +18,26 @@ let isAnimating = false
 let cameraOpen = false
 let canGoldenKill = false
 let scramble = new Audio("assets/sounds/scramble.ogg")
+let currentCameraTitleElement = document.getElementById("CameraNameSpan")
 scramble.volume = 0.3
 
 let gFredKill = document.getElementById("gFredKill")
+
+let cameraDictName = {
+    "ONEA":"Show Stage",
+    "ONEB":"Dining Hall",
+    "ONEC":"Pirate's Cove",
+    "SEVEN":"Bathrooms",
+    "FIVE":"Backstage",
+    "SIX":"Kitchen",
+    "THREE":"Supply Closet",
+    "TWOA":"Left Hallway",
+    "TWOB":"Left Hall Corner",
+    "FOURA":"Right Hallway",
+    "FOURB":"Right Hall Corner"
+}
+
+
 
 const delay = ms => new Promise(res => setTimeout(res, ms));
 const activationAnimation = async () =>
@@ -131,6 +148,7 @@ function changeCamera(camera)
 
 function silentSwitch()
 {
+    currentCameraTitleElement.innerText = cameraDictName[currentCamera]
     switch(currentCamera)
     {
         case "ONEA":
@@ -154,6 +172,10 @@ function silentSwitch()
         break;
         case "ONEC":
             flipAnimation.src = `assets/camera/CAM_ONEC-${foxyProgress}.webp`
+            if(foxyProgress>=3)
+            {
+                currentCameraTitleElement.innerText = "IT'S ME"
+            }
         break;
         case "ONEB":
        //     console.log('jesus')
@@ -189,6 +211,7 @@ function silentSwitch()
             }
             else if(foxyProgress==3)
             {
+                currentCameraTitleElement.innerText = "IT'S ME"
                 runningSound.volume = 1
                 flipAnimation.src = `assets/camera/CAM_TWOA_BfalseF${foxyProgress==3}.webp`
                 earlyReveal = true
