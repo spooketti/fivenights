@@ -3,7 +3,7 @@ let blackOut = false
 let usage = 0;
 let drainRates = [0.1,.235,.341,.447,.7]
 let powerUI = document.getElementById("powerUI")
-let powerInterval = window.setInterval(powerDrain, 1000);
+let powerInterval = window.setInterval(powerDrain, 1500);
 let fan = document.getElementById("fan")
 let powerDSound = new Audio("assets/sounds/powerdown.wav")
 
